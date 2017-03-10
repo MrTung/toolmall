@@ -12,10 +12,6 @@
 
 @implementation BaseService
 
-//@synthesize delegate;
-//@synthesize parentView;
-
-
 - (id)initWithDelegate:(id)delegate parentView:(UIView *)view{
     
     self.delegate = delegate;
@@ -36,11 +32,7 @@
     
     AFHTTPClient * client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:api_host]];
     MBProgressHUD * hud = [[MBProgressHUD alloc] initWithView:self.parentView];
-//    hud.opacity = 0.6;
-//    hud.yOffset = -80.0;
-//    hud.margin = 10.0;
-//    hud.color = [UIColor clearColor];
-//    hud.labelColor = lightGrayColorSelf;
+
     // @"正在加载"
     NSString *baseService_showHUD_title = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"baseService_showHUD_title"];
     if (!baseService_showHUD_title.length) {
@@ -50,16 +42,15 @@
     
     NSURLRequest *request = [client requestWithMethod:@"POST" path:api_url parameters:params];
     
-//    NSLog(@"api_url --- %@",api_url);
     
     AFJSONRequestOperation * operation =
     [AFJSONRequestOperation JSONRequestOperationWithRequest:request
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
-            NSDictionary * jj = (NSDictionary *)JSON;
-            [responseObj initWithDictionary:jj];
+            NSDictionary * dict = (NSDictionary *)JSON;
+            [responseObj initWithDictionary:dict];
             responseObj.paymentPluginId = params[@"paymentPluginId"];
-            NSDictionary *status = [jj objectForKey:@"status"];
+            NSDictionary *status = [dict objectForKey:@"status"];
             NSNumber *succeed = [status objectForKey:@"succeed"];
 
             if (status != nil && [succeed intValue] == 0 && self.parentView){
@@ -80,7 +71,7 @@
                 
                 NSTimeInterval time = [informationService getMarginTimeWithbeginTime:beginTime];
                 [informationService getPerformMessageWithtab:api_url time:time param:params];
-                [informationService getPerformMessageWithtab:api_url time:currentDate obj:jj];
+                [informationService getPerformMessageWithtab:api_url time:currentDate obj:dict];
             }
         }
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -129,9 +120,9 @@
     [AFJSONRequestOperation JSONRequestOperationWithRequest:request
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
-            NSDictionary * jj = (NSDictionary *)JSON;
-            [responseObj initWithDictionary:jj];
-            NSDictionary *status = [jj objectForKey:@"status"];
+            NSDictionary * dict = (NSDictionary *)JSON;
+            [responseObj initWithDictionary:dict];
+            NSDictionary *status = [dict objectForKey:@"status"];
             NSNumber *succeed = [status objectForKey:@"succeed"];
             
             if (status != nil && [succeed intValue] == 0 && self.parentView){
@@ -153,7 +144,7 @@
                 
                 NSTimeInterval time = [informationService getMarginTimeWithbeginTime:beginTime];
                 [informationService getPerformMessageWithtab:api_url time:time param:params];
-                [informationService getPerformMessageWithtab:api_url time:currentDate obj:jj];
+                [informationService getPerformMessageWithtab:api_url time:currentDate obj:dict];
             }
             
         }

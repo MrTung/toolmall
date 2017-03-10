@@ -41,7 +41,6 @@ Class nsArrayClass;
 				
 				NSMutableArray *childObjects = [NSMutableArray arrayWithCapacity:[(NSArray*)value count]];
                 for (id child in value) {
-//                    NSLog([NSString stringWithFormat:@"%@_class", key]);
                     if ([[child class] isSubclassOfClass:nsDictionaryClass]) {
                         Class arrayItemType = [[self class] performSelector:NSSelectorFromString([NSString stringWithFormat:@"%@_class", key])];
                         if ([arrayItemType isSubclassOfClass:[NSDictionary class]]) {
@@ -74,11 +73,6 @@ Class nsArrayClass;
 
 - (void)dealloc {
 	self.objectId = nil;
-	
-//	for (NSString *key in [JastorRuntimeHelper propertyNames:[self class]]) {
-//		//[self setValue:nil forKey:key];
-//	}
-	
 }
 
 - (void)encodeWithCoder:(NSCoder*)encoder {

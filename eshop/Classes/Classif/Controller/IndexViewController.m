@@ -723,15 +723,6 @@
     myWebView.loadUrl = [[Config Instance] getUserInfo:onlineUrl];
     myWebView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:myWebView animated:YES];
-    
-    
-    //    JSWebView *jsWebView = [[JSWebView alloc] init];
-    //    jsWebView.navTitle = @"工具节";
-    //    NSString *urlstr = @"http://192.168.2.127:8080/toolmall/shop/index/couponlist.jhtm?ids=1514,1515&typeC=app&type=jsview&client=iOSApp";
-    //    jsWebView.loadUrl = urlstr;
-    //    jsWebView.hidesBottomBarWhenPushed = YES;
-    //    [self.navigationController pushViewController:jsWebView animated:YES];
-    
 }
 
 #pragma - 热线电话点击事件
@@ -962,12 +953,6 @@
     [self.tabBarController.tabBar addSubview:imgView];
     [self.tabBarController.tabBar setBackgroundImage:[[UIImage alloc]init]];
 }
-
-//- (void)viewDidAppear:(BOOL)animated {
-//
-//    [super viewDidAppear:animated];
-//
-//}
 
 #pragma UI
 - (void)createUI{
@@ -1211,7 +1196,6 @@
         style.xScanRetangleOffset = 20;
     }
     
-    
     style.alpa_notRecoginitonArea = 0.6;
     style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Inner;
     style.photoframeLineW = 2.0;
@@ -1234,20 +1218,10 @@
     SubLBXScanViewController *vc = [SubLBXScanViewController new];
     vc.hidesBottomBarWhenPushed = YES;
     vc.style = style;
-    //    vc.isQQSimulator = YES;
-    //vc.isOpenInterestRect = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
 
 - (IBAction)clickMsgCenter:(id)sender{
-    //    SESSION *session = [SESSION getSession];
-    //    if (session.uid < 0){
-    //        ShopLoginViewController *ShopLoginViewController = [[ShopLoginViewController alloc] initWithNibName:@"ShopLoginViewController" bundle:nil];
-    //        ShopLoginViewController.nextPageWhenLogined = @"msg";
-    //        [self.navigationController pushViewController:ShopLoginViewController animated:YES];
-    //        return;
-    //    }
-    
     MsgList *msgList = [[MsgList alloc] initWithNibName:@"MsgList" bundle:nil];
     [self.navigationController pushViewController:msgList animated:YES];
 }
