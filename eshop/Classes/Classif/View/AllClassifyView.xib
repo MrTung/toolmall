@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AllClassifyView">
+            <rect key="frame" x="0.0" y="0.0" width="106" height="126"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-LI-Z00">
+                    <rect key="frame" x="0.0" y="0.0" width="105.5" height="125.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RvQ-gB-nuq" customClass="EGOImageView">
+                            <rect key="frame" x="20" y="10" width="65.5" height="65.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="RvQ-gB-nuq" secondAttribute="height" multiplier="1:1" id="OIh-96-4Kd"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电动/耗材" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xu-YA-9sI">
+                            <rect key="frame" x="0.0" y="85.5" width="105.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="2Xu-YA-9sI" secondAttribute="trailing" id="JOt-nv-8DG"/>
+                        <constraint firstItem="2Xu-YA-9sI" firstAttribute="top" secondItem="RvQ-gB-nuq" secondAttribute="bottom" constant="10" id="NnP-bm-98k"/>
+                        <constraint firstItem="2Xu-YA-9sI" firstAttribute="leading" secondItem="XHl-LI-Z00" secondAttribute="leading" id="Xsb-ED-YML"/>
+                        <constraint firstAttribute="trailing" secondItem="RvQ-gB-nuq" secondAttribute="trailing" constant="20" id="nOe-C8-PoE"/>
+                        <constraint firstItem="RvQ-gB-nuq" firstAttribute="top" secondItem="XHl-LI-Z00" secondAttribute="top" constant="10" id="nTr-Q2-vUp"/>
+                        <constraint firstItem="RvQ-gB-nuq" firstAttribute="leading" secondItem="XHl-LI-Z00" secondAttribute="leading" constant="20" id="wMQ-5V-5YF"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja6-0W-ltr">
+                    <rect key="frame" x="105.5" y="0.0" width="0.5" height="126"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="0.5" id="0OA-Zn-76N"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0c-w8-pmW">
+                    <rect key="frame" x="0.0" y="125.5" width="106" height="0.5"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.59999999999999998" id="BLe-a5-QuT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-Dv-6vm">
+                    <rect key="frame" x="0.0" y="0.0" width="106" height="126"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ja6-0W-ltr" secondAttribute="bottom" id="3AY-It-Mqp"/>
+                <constraint firstItem="a9v-Dv-6vm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Y9-cd-bIG"/>
+                <constraint firstAttribute="trailing" secondItem="y0c-w8-pmW" secondAttribute="trailing" id="JSp-FW-NZa"/>
+                <constraint firstItem="a9v-Dv-6vm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="P3V-Uq-r04"/>
+                <constraint firstItem="XHl-LI-Z00" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="P7d-tK-Rgw"/>
+                <constraint firstAttribute="bottom" secondItem="XHl-LI-Z00" secondAttribute="bottom" id="QBK-Bn-vEZ"/>
+                <constraint firstItem="XHl-LI-Z00" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qnd-7l-mLi"/>
+                <constraint firstItem="y0c-w8-pmW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SgS-xV-gmn"/>
+                <constraint firstAttribute="bottom" secondItem="a9v-Dv-6vm" secondAttribute="bottom" id="Vpd-jD-SDi"/>
+                <constraint firstAttribute="trailing" secondItem="XHl-LI-Z00" secondAttribute="trailing" id="Zi9-oR-v0U"/>
+                <constraint firstAttribute="trailing" secondItem="a9v-Dv-6vm" secondAttribute="trailing" id="jEk-9g-8kT"/>
+                <constraint firstAttribute="trailing" secondItem="ja6-0W-ltr" secondAttribute="trailing" id="kG7-lA-wRE"/>
+                <constraint firstAttribute="bottom" secondItem="y0c-w8-pmW" secondAttribute="bottom" id="pVX-l7-bGJ"/>
+                <constraint firstItem="ja6-0W-ltr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rwa-7O-STz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allClassifyBtn" destination="a9v-Dv-6vm" id="oeZ-I3-i2o"/>
+                <outlet property="imageView" destination="RvQ-gB-nuq" id="8AB-we-aOc"/>
+                <outlet property="titleLabel" destination="2Xu-YA-9sI" id="5gg-tz-uTo"/>
+            </connections>
+            <point key="canvasLocation" x="-15" y="80"/>
+        </view>
+    </objects>
+</document>

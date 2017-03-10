@@ -1,0 +1,52 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "a836d941-9dfb-6e4b-ab6c-395df66f31f9++1775",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "13ca3ae7-b43a-b14f-99df-b3a774aa8a3e" : {
+
+    },
+    "a836d941-9dfb-6e4b-ab6c-395df66f31f9++1775" : {
+
+    },
+    "d4ea424a-9c82-c646-b825-467564c25d82++103" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "a836d941-9dfb-6e4b-ab6c-395df66f31f9++1775" : 9223372036854775807,
+    "d4ea424a-9c82-c646-b825-467564c25d82++103" : 9223372036854775807,
+    "13ca3ae7-b43a-b14f-99df-b3a774aa8a3e" : 0,
+    "93B4582524199FDED9DC7F14ED378A1AD6222EBD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "41A7F362-783E-4842-A03E-DEAD10F8BB8E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "a836d941-9dfb-6e4b-ab6c-395df66f31f9++1775" : "193svnios_0307\/",
+    "d4ea424a-9c82-c646-b825-467564c25d82++103" : "193svnios\/",
+    "13ca3ae7-b43a-b14f-99df-b3a774aa8a3e" : "ToolMallIOSApp\/",
+    "93B4582524199FDED9DC7F14ED378A1AD6222EBD" : "toolmall_ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "eshop",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "eshop.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/114.215.209.193:3508\/svn\/ToolMallIOSApp",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "13ca3ae7-b43a-b14f-99df-b3a774aa8a3e"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/git.coding.net\/wilson020021\/toolmall_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "93B4582524199FDED9DC7F14ED378A1AD6222EBD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.100.146\/svn\/iPhoneApp",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "a836d941-9dfb-6e4b-ab6c-395df66f31f9++1775"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/114.215.209.193:3508\/svn\/ToolMall",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "d4ea424a-9c82-c646-b825-467564c25d82++103"
+    }
+  ]
+}

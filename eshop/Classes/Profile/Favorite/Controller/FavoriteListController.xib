@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListController">
+            <connections>
+                <outlet property="btnAddCar" destination="8bF-dv-sxK" id="MVf-5c-182"/>
+                <outlet property="btnCancel" destination="tEz-wB-jax" id="cIp-Dy-wcv"/>
+                <outlet property="btnContainer" destination="Jw0-xh-1rD" id="Nde-iz-HKk"/>
+                <outlet property="btnContainerHeightCons" destination="zgS-dS-lUE" id="c8a-R2-c2Y"/>
+                <outlet property="tableBtmCons" destination="1FR-QR-D63" id="Ytx-sI-DGx"/>
+                <outlet property="tableList" destination="GBY-E1-Qy4" id="Ut5-sl-1ma"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jw0-xh-1rD">
+                    <rect key="frame" x="0.0" y="440" width="320" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEz-wB-jax">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                            <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="取消收藏">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="delFavorite:" destination="-1" eventType="touchUpInside" id="Mjq-g4-FSp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bF-dv-sxK">
+                            <rect key="frame" x="160" y="0.0" width="160" height="40"/>
+                            <color key="backgroundColor" red="0.098039215686274508" green="0.29411764705882354" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="加入购物车">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="addCar:" destination="-1" eventType="touchUpInside" id="PmT-nb-8L9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="8bF-dv-sxK" firstAttribute="leading" secondItem="tEz-wB-jax" secondAttribute="trailing" id="HPa-KR-sKP"/>
+                        <constraint firstItem="tEz-wB-jax" firstAttribute="top" secondItem="Jw0-xh-1rD" secondAttribute="top" id="RMA-yJ-yui"/>
+                        <constraint firstItem="8bF-dv-sxK" firstAttribute="width" secondItem="tEz-wB-jax" secondAttribute="width" id="Xlr-uC-Pdb"/>
+                        <constraint firstItem="8bF-dv-sxK" firstAttribute="top" secondItem="Jw0-xh-1rD" secondAttribute="top" id="Y75-CZ-6sY"/>
+                        <constraint firstAttribute="trailing" secondItem="8bF-dv-sxK" secondAttribute="trailing" id="fK8-zK-EKP"/>
+                        <constraint firstAttribute="bottom" secondItem="tEz-wB-jax" secondAttribute="bottom" id="i8S-ei-O0M"/>
+                        <constraint firstItem="tEz-wB-jax" firstAttribute="leading" secondItem="Jw0-xh-1rD" secondAttribute="leading" id="rAh-47-ilh"/>
+                        <constraint firstAttribute="bottom" secondItem="8bF-dv-sxK" secondAttribute="bottom" id="tJr-13-l3E"/>
+                        <constraint firstAttribute="height" constant="40" id="zgS-dS-lUE"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GBY-E1-Qy4" customClass="PullTableView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="jEe-in-b59"/>
+                        <outlet property="delegate" destination="-1" id="JIr-mb-xJV"/>
+                        <outlet property="pullDelegate" destination="-1" id="L4t-8w-37k"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.93756368889999997" green="0.93756368889999997" blue="0.93756368889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GBY-E1-Qy4" secondAttribute="bottom" id="1FR-QR-D63"/>
+                <constraint firstAttribute="bottom" secondItem="Jw0-xh-1rD" secondAttribute="bottom" id="1KR-7g-Psa"/>
+                <constraint firstItem="GBY-E1-Qy4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="E4Y-US-q6R"/>
+                <constraint firstAttribute="trailing" secondItem="Jw0-xh-1rD" secondAttribute="trailing" id="SLL-C3-j4H"/>
+                <constraint firstAttribute="trailing" secondItem="GBY-E1-Qy4" secondAttribute="trailing" id="c7F-8o-Fu8"/>
+                <constraint firstItem="GBY-E1-Qy4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mNH-iR-UXp"/>
+                <constraint firstItem="Jw0-xh-1rD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="o9t-5p-5M0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="342" y="156"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

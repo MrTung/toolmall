@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HotActiveView1">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2JW-g8-L5l" customClass="EGOImageView">
+                    <rect key="frame" x="0.0" y="40" width="160" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="2JW-g8-L5l" secondAttribute="height" multiplier="4:3" id="zfD-3j-y0W"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star Copy" translatesAutoresizingMaskIntoConstraints="NO" id="bMc-yF-fGK" customClass="EGOImageView">
+                    <rect key="frame" x="100" y="97" width="55" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="8Xj-V2-4FV"/>
+                        <constraint firstAttribute="width" secondItem="bMc-yF-fGK" secondAttribute="height" multiplier="1:1" id="G3u-fj-WAb"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.9元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lE-E1-cTG">
+                    <rect key="frame" x="107.5" y="111" width="40" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="XdC-xh-eb2"/>
+                        <constraint firstAttribute="width" constant="40" id="kSl-ga-u8W"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="秒杀" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-Nf-ujA">
+                    <rect key="frame" x="107.5" y="124" width="40" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="P5A-TK-nD7"/>
+                        <constraint firstAttribute="height" constant="15" id="dA4-Mo-5LW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHE-y3-Jgz">
+                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="WHE-y3-Jgz" secondAttribute="bottom" id="0VG-AT-Ecx"/>
+                <constraint firstAttribute="bottom" secondItem="bMc-yF-fGK" secondAttribute="bottom" constant="8" id="E2A-Eu-sY3"/>
+                <constraint firstAttribute="trailing" secondItem="2JW-g8-L5l" secondAttribute="trailing" id="FIR-jl-hel"/>
+                <constraint firstAttribute="bottom" secondItem="ggE-Nf-ujA" secondAttribute="bottom" constant="21" id="Iig-BY-3E3"/>
+                <constraint firstItem="ggE-Nf-ujA" firstAttribute="centerX" secondItem="bMc-yF-fGK" secondAttribute="centerX" id="NaB-t5-ctz"/>
+                <constraint firstItem="WHE-y3-Jgz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ou0-Y4-jpT"/>
+                <constraint firstItem="2JW-g8-L5l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eDz-cb-XYj"/>
+                <constraint firstItem="0lE-E1-cTG" firstAttribute="centerX" secondItem="bMc-yF-fGK" secondAttribute="centerX" id="k2c-0Q-jAx"/>
+                <constraint firstItem="ggE-Nf-ujA" firstAttribute="top" secondItem="0lE-E1-cTG" secondAttribute="bottom" constant="3" id="qhf-pm-6R3"/>
+                <constraint firstItem="WHE-y3-Jgz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rJR-gf-3j8"/>
+                <constraint firstAttribute="trailing" secondItem="bMc-yF-fGK" secondAttribute="trailing" constant="5" id="rK0-C6-e68"/>
+                <constraint firstAttribute="trailing" secondItem="WHE-y3-Jgz" secondAttribute="trailing" id="rMc-ii-9RM"/>
+                <constraint firstAttribute="bottom" secondItem="2JW-g8-L5l" secondAttribute="bottom" id="ySe-zD-moE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentLabel" destination="ggE-Nf-ujA" id="szr-M6-4iy"/>
+                <outlet property="hotacBtn1" destination="WHE-y3-Jgz" id="3MJ-c8-P8f"/>
+                <outlet property="imageView" destination="2JW-g8-L5l" id="aUy-6H-Jlb"/>
+                <outlet property="priceLabel" destination="0lE-E1-cTG" id="ZIB-60-rgJ"/>
+                <outlet property="starImgView" destination="bMc-yF-fGK" id="3Lx-s9-Po8"/>
+            </connections>
+            <point key="canvasLocation" x="15" y="249"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Star Copy" width="120" height="117"/>
+    </resources>
+</document>

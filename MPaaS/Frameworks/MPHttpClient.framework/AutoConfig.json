@@ -1,0 +1,61 @@
+{
+    "class": "DTRpcInterface",
+    "header": "<MPHttpClient/DTRpcInterface.h>",
+    "title": {
+        "chinese": "RPC",
+        "english": "RPC"
+    },
+    "entries": [
+                    {
+                        "title": {
+                            "chinese": "网关地址",
+                            "english": "Gateway"
+                        },
+                        "declaration": "- (NSString*)gatewayURL",
+                        "description": {
+                            "chinese": "重写该方法返回RPC网关地址，格式为'https://mobilegw.alipay.com/mgw.htm'。\n如果使用了MPaaS提供的默认系统设置服务来进行环境切换，重写该方法会使设置服务失效。\n点击右边的删除按钮可以去掉该配置项。",
+                            "english": "Override this method and return your RPC gateway which format is 'https://mobilegw.alipay.com/mgw.htm'.\nIf you want to use the default iOS system setting service of MPaaS to change environment, do not override this method.\nClick the delete button on right side to remove this entry."
+                        },
+                        "optional": true,
+                        "type": "string",
+                        "default": "https://<type here>/mgw.htm"
+                    },
+                    {
+                        "title": {
+                            "chinese": "签名密钥名称",
+                            "english": "Name of Sign Key"
+                        },
+                        "declaration": "- (NSString*)signKeyForRequest:(NSURLRequest*)request",
+                        "description": {
+                            "chinese": "RPC请求需要使用无线保镖进行客户端签名，服务端验证。\n该方法返回应用需要使用无线保镖密钥文件（yw_1222.jpg）中哪个密钥（Appkey）进行签名，密钥名称无强制要求，起任意名字均可。支持二方、三方无线保镖SDK。",
+                            "english": "Client signs RPC method using SecurityGuardSDK and server verify this sign.\nYou should return the key name of your secret saved in SecurityGuardSDK file(yw_1222.jpg). The name of your secret is arbitrary. Both 2nd and 3rd party SecurityGuardSDK are supported."
+                        },
+                        "type": "string",
+                        "default": ""
+                    },
+                    {
+                        "title": {
+                            "chinese": "通用拦截器",
+                            "english": "Common Interceptor"
+                        },
+                        "declaration": "- (NSString*)commonInterceptorClassName",
+                        "description": {
+                            "chinese": "RPC拦截器的功能：在请求发送前与发送后RPC模块会调用上层注册的回调接口，可以定制化RPC请求与个性化错误处理。\nRPC模块只记录一个拦截器对象，所以只能添加通用拦截器，并将其它拦截器安装到通用拦截器中。\n如果不希望添加通用拦截器，可以点击右边的删除按钮去掉该配置项。",
+                            "english": "Function of RPC interceptor is invoking upper callbacks before or after RPC request which allows customizing your request or error handling.\nRPC module allows only one interceptor registered, so you can add a common interceptor and add other interceptors to this container.\nIf you do not want to use common interceptor, click the delete button on right side to remove this entry."
+                        },
+                        "optional": true,
+                        "locked": true,
+                        "type": "string",
+                        "default": "DTRpcCommonInterceptor",
+                        "option:<NOT_CLOSED>": [
+                               {
+                                   "type": "source",
+                                   "files": [
+                                         "DTRpcCommonInterceptor.h",
+                                         "DTRpcCommonInterceptor.m"
+                                    ]
+                               }
+                        ]
+                    }
+                ]
+}

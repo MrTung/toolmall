@@ -1,0 +1,350 @@
+//
+//  PrefixHeader.pch
+//  eshop
+//
+//  Created by mc on 15/10/30.
+//  Copyright © 2015年 hzlg. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+
+/** 蚂蚁金服 pch **/
+#import <MPHotpatchSDK/MPHotpatchSDK.h>
+#import <MPRemoteLogging/MPRemoteLogging.h>
+#import <MPHttpClient/MPHttpClient.h>
+#import <MPAnalysis/MPAnalysis.h>
+#import <mPaas/mPaas.h>
+/** 蚂蚁金服 pch **/
+
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <QuartzCore/QuartzCore.h>
+#import "MBProgressHUD.h"
+#import "EGOImageView.h"
+#import "AFOSCClient.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFXMLRequestOperation.h"
+#import "AFJSONRequestOperation.h"
+#import "EGORefreshTableHeaderView.h"
+#import "DataSingleton.h"
+#import "Tool.h"
+#import "YCXMenu.h"
+
+#import "Config.h"
+#import "BaseModel.h"
+#import "BaseService.h"
+#import "CommonUtils.h"
+#import "SESSION.h"
+#import "Status.h"
+#import "Paginated.h"
+#import "AppProduct.h"
+#import "AppGoods.h"
+#import "USER.h"
+#import "Pagination.h"
+#import "Message.h"
+#import "MyProtocols.h"
+#import "AppStatic.h"
+#import "URLUtils.h"
+//#import "UMSocialCore.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialWechatHandler.h"
+#import "UIBaseController.h"
+#import "XWActionSheet.h"
+#import "KSDatePicker.h"
+#import "AppActivity.h"
+#import "MsgList.h"
+
+#import "Masonry.h"
+#import "CDVViewController.h"
+#import "TextDataBase.h"
+#import "UIFont+Fit.h"
+#import "UIButton+Badge.h"
+#import "UIImage+Extension.h"
+#import "UIColor+RGB.h"
+#import "UIDevice+Extensions.h"
+
+#import "UserCacheModel.h"
+#import "ArchiverCacheHelper.h"
+#import "SharedAppUtil.h"
+
+
+#define WeakSelf __weak typeof(self) weakSelf = self;
+#define kWidth [UIScreen mainScreen].bounds.size.width
+#define kHeight [UIScreen mainScreen].bounds.size.height
+#define kTextHeight 40
+#define kBorder 15
+#define kButtonBorder 25
+#define kFont 14.0f
+
+/** 自定义Log，日志开关 0-关闭 1-开启 */
+#define __LOGDEBUG__ (1)
+
+#if defined(__LOGDEBUG__) && __LOGDEBUG__ && DEBUG
+#define MT_Log(...) NSLog(__VA_ARGS__)
+#else
+#define MT_Log(...)
+#endif
+
+
+#define kBGColor [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1]
+#define kBorderColor [UIColor colorWithRed:207/255.0 green:207/255.0 blue:207/255.0 alpha:1]
+#define SINGLE_LINE_WIDTH           (1 / [UIScreen mainScreen].scale)
+#define SINGLE_LINE_ADJUST_OFFSET   ((1 / [UIScreen mainScreen].scale) / 2)
+//343154  满100减50
+//605175 赠送商品
+//884387
+#define AppVersion @"1.92"
+
+
+// 145 测试环境
+//#define url_index @"http://192.168.100.145:8080/toolmall/app/index2_ios.html"
+//#define url_service_agreement @"http://192.168.100.145:8080/toolmall/app/setting/service_agreement.jhtm"
+//#define url_about @"http://192.168.100.145:8080/toolmall/app/about/aboutTm.html"
+//#define website_url @"http://192.168.100.145:8080/toolmall/"
+//#define api_host @"http://192.168.100.145:8080/toolmall/app/"
+//#define url_delivery_query @"http://192.168.100.145:8080/toolmall/app/order/delivery_query.jhtm"
+
+// 德福 测试环境
+//#define url_index @"http://192.168.2.127:8080/toolmall/app/index2_ios.html"
+//#define url_service_agreement @"http://192.168.2.127:8080/toolmall/app/setting/service_agreement.jhtm"
+//#define url_about @"http://192.168.2.127:8080/toolmall/app/about/aboutTm.html"
+//#define website_url @"http://192.168.2.127:8080/toolmall/"
+//#define api_host @"http://192.168.2.127:8080/toolmall/app/"
+//#define url_delivery_query @"http://192.168.2.127:8080/toolmall/app/order/delivery_query.jhtm"
+
+// 张涌江 测试环境
+//#define url_index @"http://192.168.2.166:8080/app/index2_ios.html"
+//#define url_service_agreement @"http://192.168.2.166:8080/app/setting/service_agreement.jhtm"
+//#define url_about @"http://192.168.2.166:8080/app/about/aboutTm.html"
+//#define website_url @"http://192.168.2.166:8080/"
+//#define api_host @"http://192.168.2.166:8080/app/"
+//#define url_delivery_query @"http://192.168.2.166:8080/app/order/delivery_query.jhtm"
+
+// 沈华清 测试环境
+//#define url_index @"http://192.168.2.188:8080/app/index2_ios.html"
+//#define url_service_agreement @"http://192.168.2.188:8080/app/setting/service_agreement.jhtm"
+//#define url_about @"http://192.168.2.188:8080/app/about/aboutTm.html"
+//#define website_url @"http://192.168.2.188:8080/"
+//#define api_host @"http://192.168.2.188:8080/app/"
+//#define url_delivery_query @"http://192.168.2.188:8080/app/order/delivery_query.jhtm"
+
+// 秒杀 测试环境
+//#define url_index @"http://121.196.209.26:8080/app/index2_ios.html"
+//#define url_service_agreement @"http://121.196.209.26:8080/app/setting/service_agreement.jhtm"
+//#define url_about @"http://121.196.209.26:8080/app/about/aboutTm.html"
+//#define website_url @"http://121.196.209.26:8080/"
+//#define api_host @"http://121.196.209.26:8080/app/"
+//#define url_delivery_query @"http://121.196.209.26:8080/app/order/delivery_query.jhtm"
+
+// 汪州 测试环境
+//#define url_index @"http://192.168.2.160:8080/toolmall/app/index2_ios.html"
+//#define url_service_agreement @"http://192.168.2.160:8080/toolmall/app/setting/service_agreement.jhtm"
+//#define url_about @"http://192.168.2.160:8080/toolmall/app/about/aboutTm.html"
+//#define website_url @"http://192.168.2.160:8080/toolmall/"
+//#define api_host @"http://192.168.2.160:8080/toolmall/app/"
+//#define url_delivery_query @"http://192.168.2.160:8080/toolmall/app/order/delivery_query.jhtm"
+
+
+// 正式环境
+#define url_index @"https://www.toolmall.com/app/index2_ios.html"
+#define url_service_agreement @"https://www.toolmall.com/app/setting/service_agreement.jhtm"
+#define url_about @"https://www.toolmall.com/app/about/aboutTm.html"
+#define website_url @"https://www.toolmall.com/"
+#define api_host @"https://www.toolmall.com/app/"
+#define url_delivery_query @"https://www.toolmall.com/app/order/delivery_query.jhtm"
+
+#define api_resource @"https://resource.toolmall.com/resource/toolmallPc/resources/app/"
+
+#define api_xmlString @"path_textStr.xml" // xml文案
+#define api_qqlogin @"loginthr/qqLogin.jhtm" // qq登录
+#define api_wxlogin @"loginthr/wechatlogin.jhtm" // weixin登录
+#define api_member_register @"member/register.jhtm" // 用户注册
+#define api_mobileregister @"member/mobileregister.jhtm" // 手机注册
+#define api_bandmobile @"member/bandMobile.jhtm" // 绑定手机
+
+#define api_order_list @"order/list.jhtm" // 订单列表
+#define api_login @"login/login.jhtm" // 用户登录
+#define api_userinfo @"member/info.jhtm" // 用户信息
+#define api_productcat_roots @"productcategory/roots.jhtm" // 分类查询
+#define api_productcat_roots_v2 @"productcategory/iosroots_v2.jhtm" // 分类查询2
+
+#pragma mark - 列表未找到
+#define api_productcat_children @"productcategory/children_v2.jhtm"
+
+#define api_product_list @"product/list.jhtm" // 商品列表/热卖推荐<收藏>
+#define api_product_info @"product/info.jhtm" // 商品详情
+
+#define api_product_desc @"product/productdesc.jhtm"   //图文详情 商品描述
+#define api_product_param @"product/productparam.jhtm" //商品参数
+#define api_review_content @"review/content.jhtm"      //用户评价 评论详情
+
+#define api_index_list @"index/listall.jhtm" // 首页
+#define api_cart_addmultiple @"cart/addmultiple.jhtm" //多条商品加入购物车 购物车加
+#define api_member_productviewhistory @"member/productviewhist.jhtm" //商品浏览历史 用户浏览历史
+#define api_member_productviewhist_page @"member/productviewhist_page.jhtm" //分页 用户浏览历史分页
+#define api_order_search_history @"order/search_history.jhtm" //订单搜索历史 订单搜索历史
+#define api_order_clear_history @"order/clear_history.jhtm" //清空订单搜索历史 订单清空历史
+#define api_member_change_username @"member/change_username.jhtm" //修改会员名称 修改用户名
+#define api_member_change_userfield @"member/change_userfield.jhtm" //修改会员用户字段 修改用户字段
+
+//上传用户头像
+#pragma mark - 列表未找到
+#define api_member_upload_headimage @"member/uploadHeadImage.jhtm"
+
+#define api_password_resetviaapp @"password/resetviaapp.jhtm" //重置用户密码 重设密码
+#define api_getSmsAuthCode @"smsauthcode/getSmsAuthCode.jhtm" // 短信验证码获得
+#define api_smsauthcode_verifySmsAuthCode @"smsauthcode/verifySmsAuthCode.jhtm" //验证短信验证码 短信验证码验证
+#define api_member_update_more @"member/moreupdatesubmit.jhtm" // 用户完善信息
+#define api_member_changemobileno @"member/changemobileno.jhtm" //修改手机号
+//#define api_member_ismemberfirstorder @"member/ismemberfirstorder.jhtm" //是否首次订单
+#define api_member_ismemberfirstorder @"member/ismemberfirstorder2.jhtm" //是否首次订单
+#define api_activity_content @"activity/content.jhtm" //获取活动信息 活动详情
+#define api_activity_productlist @"activity/productlist.jhtm" //获取活动产品列表 活动商品列表
+
+//活动信息H5页面
+#pragma mark - 列表未找到
+//#define api_activity_activityhtml @"activity/activityhtml.jhtm"
+
+#define api_review_listoforder @"review/listoforder.jhtm" //获取订单的评价列表 评论订单列表
+/* 测试联调环境支付命令格式如下：
+http://61.144.248.29:801/netpayment/BaseHttp.dll?PrePayEUserP?BranchID=xxxx&CoNo=xxxxxx&BillNo=xxxxxx&Amount=xxxx.xx&Date=YYYYMMDD&ExpireTimeSpan=xx&MerchantUrl=xxxxxx&MerchantPara=xxxxxx&MerchantCode=xx&MerchantRetUrl=xxxxxx&MerchantRetPara=xxxxxx
+ */
+
+#define api_cart_list @"cart/list.jhtm" // 购物车列表
+#define api_cart_update @"cart/update.jhtm" // 购物车更新
+#define api_cart_item_add @"cart/add.jhtm" // 购物车新增
+#define api_cart_updatemult @"cart/updatemultiply.jhtm" // 购物车多更新
+#define api_cart_item_delete @"cart/delete.jhtm" // 购物车删除
+#define api_order_build2 @"order/build2.jhtm" // 购物车快速购买订单生成
+#define api_order_create2 @"order/create2.jhtm" // 订单创建
+#define api_order_view @"order/view.jhtm" // 订单详情
+#define api_payment_plugins @"order/paymentplugins.jhtm" // 订单支付方式列表
+#define api_deposit_list @"deposit/list.jhtm" // deposit列表
+
+#pragma mark - 列表未找到
+//#define api_order_pay @"order/pay.jhtm"
+
+#define api_order_cancel @"order/cancel.jhtm" // 订单取消
+//#define api_order_calculate2 @"order/calculate2.jhtm"
+#define api_order_calculate @"order/calculate2.jhtm" // 订单计算
+#define api_calculate_freight @"order/calculateFreight.jhtm" // 订单计算运费
+#define api_order_confirmreceived @"order/confirmReceive.jhtm" // 订单确认
+#define api_order_remindshipping @"order/remindShipping.jhtm" // 订单提醒发货
+#define api_order_express @"order/delivery_query.jhtm" // 订单物流
+#define api_order_build_buyatonce @"order/build_buyatonce.jhtm" // 订单立即购买
+#define api_address_info @"receiver/info.jhtm" // 收货详情
+#define api_region @"area/children.jhtm" // 地区
+#define api_address_update @"receiver/update.jhtm" // 收货更新
+#define api_address_setdefault @"receiver/setDefault.jhtm" // 收货默认
+#define api_address_add @"receiver/save.jhtm" // 收货保存
+#define api_address_delete @"receiver/delete.jhtm" // 收货删除
+#define api_address_list @"receiver/list.jhtm" // 收货列表
+#define api_couponcode_list @"couponcode/list.jhtm" // 优惠券列表
+#define api_couponcode_view @"couponcode/view.jhtm" // 优惠券详情3
+#define api_coupon_list @"couponcode/couponlist.jhtm" // 优惠券列表2
+#define api_coupon_exchange @"couponcode/exchange.jhtm" // 优惠券兑换
+#define api_coupon_getCoupon @"couponcode/getCoupon.jhtm" // 优惠券获取<点击链接获取>
+
+//#define api_product_search_list @"product/search.jhtm" // 商品搜索
+#define api_product_search_list @"product/search2.jhtm" // 商品搜索
+
+//#define api_hotsearchkeylist @"productsearchkey/hotkeylist.jhtm" // 热词搜索
+#define api_hotsearchkeylist @"productsearchkey/hotkeylist2.jhtm" // 热词搜索
+#define api_productsearchkey_clear_search_history @"productsearchkey/clear_search_history.jhtm" // 清空搜索历史
+#define api_searchkey_history_list @"product/searchkeyhistory.jhtm" // 商品搜索历史
+
+#define api_favorite_list @"favorite/list.jhtm" // 收藏列表
+#define api_favorite_delete @"favorite/delete.jhtm" // 收藏删除
+#define api_favorite_deleteFavorites @"favorite/deleteFavorites.jhtm" //取消收藏多条商品 收藏批量删除
+#define api_favorite_add @"favorite/add.jhtm" // 收藏添加
+#define api_msg_list @"message/list.jhtm" // 消息列表
+#define api_msg_view @"message/view.jhtm" // 消息查看
+#define api_msg_send @"message/send.jhtm" // 消息发送
+#define api_msg_reply @"message/reply.jhtm" // 消息回传
+#define api_review_list @"review/list.jhtm" // 商品搜索历史
+#define api_review_submit @"review/submit.jhtm" // 评论提交
+//#define api_feedback_tags @"feedback/tags.jhtm" // 反馈标签
+//#define api_feedback_submit @"feedback/submit.jhtm" // 反馈提交
+//#define api_more_brands @"brand/list.jhtm" // 品牌列表
+#define api_more_brandDetail @"brandList/brandlist.jhtm" // 品牌图标
+#define api_more_brandsCatalist @"brandList/brandCatalist.jhtm" // 品牌列表
+#define api_more_brandsecondCatatList @"brandList/brandsecondCatatList.jhtm" // 单个品牌分类列表
+#define api_more_brandsecondCatatProductList @"brandList/secondCatatProductList.jhtm" // 单个品牌分类商品
+#define api_promotion_list @"promotion/list.jhtm" // 促销活动列表
+#define api_online_pay @"payment/submit.jhtm" // 支付提交
+#define api_app_update @"appupdate/updateinfo2.jhtm" // 客户端升级
+#define api_count_active @"count/active.jhtm" // 是否激活
+#define api_coupon_exchangebycode @"couponcode/exchangebycode.jhtm" // 优惠券exchange2
+#define api_coupon_info_bycode @"couponcode/infobycode.jhtm" // 优惠券详情
+#define api_coupon_info @"couponcode/info.jhtm" // 优惠券详情2
+#define api_check_captcha @"login/check_captcha.jhtm" // 验证码校验
+
+#define IsCheckEnabled @"IsCheckEnabled"
+#define CheckValue @"checkValue"
+#define iOSAppVersion @"iOSAppVersion"
+#define iOSApiVersion @"iOSApiVersion"
+
+#define OrderListCellIdentifier @"OrderListCellIdentifier"
+#define CatRootCellIdentifier @"CatRootCellIdentifier"
+
+#define blueColorSelf [UIColor colorWithRed:33.0/255.0 green:105.0/255.0 blue:223.0/255.0 alpha:1.0]
+#define redColorSelf [UIColor colorWithRed:227.0/255.0 green:33.0/255.0 blue:26.0/255.0 alpha:1.0]
+#define lightGrayColorSelf [UIColor colorWithRed:120.0/255.0 green:120.0/255.0 blue:120.0/255.0 alpha:1.0]
+#define groupTableViewBackgroundColorSelf [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0]
+
+#define localCouponCodeNum @"localCouponCodeNum"
+
+#define loadNext20Tip @"查看更多"
+#define loadingTip @"正在加载 . . ."
+#define networkError @"网络无连接"
+#define noNetworkTip @"网络无连接"
+#define searchNoResult @"没有结果"
+#define undo @"暂未开通该功能"
+#define dosuccessed @"操作成功"
+#define sharecontent @"我在土猫网发现了一个不错的商品，赶快来看"
+
+#define onlineUrl @"onlineUrl"
+#define phoneNum @"phoneNum"
+
+
+
+/**
+ *  用户信息归档key
+ */
+#define User_Archiver_Key @"userInfor"
+/**
+ *  用户信息归档路径
+ */
+#define User_Archiver_Path @"userInforPath"
+
+// 颜色
+#define TMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define TMScreenW [UIScreen mainScreen].bounds.size.width
+
+#define TMScreenH [UIScreen mainScreen].bounds.size.height
+
+// 全局背景色
+#define TMGlobalBg TMColor(235, 235, 235)
+
+// 黑色
+#define TMBlackColor TMColor(61, 61, 61)
+
+// 红色
+#define TMRedColor TMColor(227, 33, 26)
+
+#define TMPop2IndexNotificationName @"ToIndex"
+
+#endif
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

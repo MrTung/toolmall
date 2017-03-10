@@ -1,0 +1,422 @@
+//
+//  SCNavTabBar.m
+//  SCNavTabBarController
+//
+//  Created by ShiCang on 14/11/17.
+//  Copyright (c) 2014年 SCNavTabBarController. All rights reserved.
+//
+
+#import "SCNavTabBar.h"
+#import "CommonMacro.h"
+#import "SCPopView.h"
+
+@interface SCNavTabBar () <SCPopViewDelegate>
+{
+//    UIScrollView    *_navgationTabBar;      // all items on this scroll view
+    UIImageView     *_arrowButton;          // arrow button
+    
+    UIView          *_line;                 // underscore show which item selected
+    SCPopView       *_popView;              // when item menu, will show this view
+    
+    NSMutableArray  *_items;                // SCNavTabBar pressed item
+    NSArray         *_itemsWidth;           // an array of items' width
+    BOOL            _canPopAllItemMenu;     // is showed arrow button
+    BOOL            _popItemMenu;           // is needed pop item menu
+    
+    UILabel         *_tipsView;             // show tips
+}
+
+@end
+
+@implementation SCNavTabBar
+
+- (id)initWithFrame:(CGRect)frame canPopAllItemMenu:(BOOL)can
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        _canPopAllItemMenu = can;
+        [self initConfig];
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark - Private Methods
+
+- (void)initConfig
+{
+    _items = [@[] mutableCopy];
+    _arrowImage = [UIImage imageNamed:SCNavTabbarSourceName(@"arrow.png")];
+    
+    [self viewConfig];
+    [self addTapGestureRecognizer];
+}
+
+- (CGFloat)tabsShowWidth
+{
+    return _canPopAllItemMenu ? (SCREEN_WIDTH - ARROW_BUTTON_WIDTH) : SCREEN_WIDTH;
+}
+
+- (void)viewConfig
+{
+    if (_canPopAllItemMenu)
+    {
+        _arrowButton = [[UIImageView alloc] initWithFrame:CGRectMake([self tabsShowWidth], DOT_COORDINATE, ARROW_BUTTON_WIDTH, ARROW_BUTTON_WIDTH)];
+        _arrowButton.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+        _arrowButton.image = _arrowImage;
+        _arrowButton.userInteractionEnabled = YES;
+        [self addSubview:_arrowButton];
+        
+        _arrowButton.layer.shadowRadius = 4.0f;
+        _arrowButton.layer.shadowOpacity = 20.0f;
+        _arrowButton.layer.shadowOffset = CGSizeMake(0, -5);
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(functionButtonPressed)];
+        [_arrowButton addGestureRecognizer:tapGestureRecognizer];
+    }
+
+    _navgationTabBar = [[UIScrollView alloc] initWithFrame:CGRectMake(DOT_COORDINATE, DOT_COORDINATE, [self tabsShowWidth], NAV_TAB_BAR_HEIGHT)];
+    _navgationTabBar.showsHorizontalScrollIndicator = NO;
+    [self addSubview:_navgationTabBar];
+    
+    // nav下面加一条分割线
+    CGFloat lineSize = 1.0 / [UIScreen mainScreen].scale;
+    UIView *bottomDivider = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height-lineSize, self.frame.size.width, lineSize)];
+//    bottomDivider.backgroundColor = [UIColor colorWithRed:0.867 green:0.867 blue:0.867 alpha:1.0];
+    bottomDivider.backgroundColor = groupTableViewBackgroundColorSelf;
+    [self addSubview:bottomDivider];
+    
+    // 添加一个tipsView(点击分类可直接跳转)
+    _tipsView = [[UILabel alloc] initWithFrame:CGRectMake(18, 16, 100, 20)];
+    _tipsView.text = @"点击分类可直接跳转";
+    _tipsView.font = [UIFont systemFontOfSize:12.0f];
+    _tipsView.textColor = [UIColor colorWithRed:0.631 green:0.631 blue:0.631 alpha:1.0];
+    [_tipsView sizeToFit];
+    _tipsView.hidden = YES;
+    [self addSubview:_tipsView];
+    //隐藏navBar底部阴影
+//    [self viewShowShadow:self shadowRadius:4.0f shadowOpacity:10.0f];
+}
+
+- (void)showLineWithButtonWidth:(CGFloat)width
+{
+    _line = [[UIView alloc] initWithFrame:CGRectMake(10.0f, NAV_TAB_BAR_HEIGHT - 3.0f, width - 20.0f, 3.0f)];
+    if (self.lineColor == nil) {
+        self.lineColor = [UIColor blueColor];
+    }
+    _line.backgroundColor = self.lineColor;
+    [_navgationTabBar addSubview:_line];
+}
+
+- (CGFloat)contentWidthAndAddNavTabBarItemsWithButtonsWidth:(NSArray *)widths
+{
+    CGFloat buttonX = DOT_COORDINATE;
+    for (NSInteger index = 0; index < [_itemTitles count]; index++)
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(buttonX, DOT_COORDINATE, [widths[index] floatValue], NAV_TAB_BAR_HEIGHT);
+        [button setTitle:_itemTitles[index] forState:UIControlStateNormal];
+        button.titleLabel.font = _titleFont;
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(itemPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_navgationTabBar addSubview:button];
+        
+        [_items addObject:button];
+        buttonX += [widths[index] floatValue];
+    }
+    if (_items.count) {
+        
+        UIButton *btn = _items[0];
+        [btn setTitleColor:redColorSelf forState:UIControlStateNormal];
+    }
+    [self showLineWithButtonWidth:[widths[0] floatValue]];
+    return buttonX;
+}
+
+- (void)addTapGestureRecognizer
+{
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(functionButtonPressed)];
+    [_arrowButton addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)itemPressed:(UIButton *)button
+{
+    NSInteger index = [_items indexOfObject:button];
+    [_delegate itemDidSelectedWithIndex:index];
+}
+
+- (void)functionButtonPressed
+{
+    _popItemMenu = !_popItemMenu;
+    [_delegate shouldPopNavgationItemMenu:_popItemMenu height:[self popMenuHeight]];
+}
+
+- (NSArray *)getButtonsWidthWithTitles:(NSArray *)titles;
+{
+    NSMutableArray *widths = [@[] mutableCopy];
+    
+    for (NSString *title in titles)
+    {
+//        CGSize size = [title sizeWithFont:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
+        CGSize size = [title sizeWithAttributes:
+                       @{NSFontAttributeName: _titleFont}];
+        CGSize adjustedSize = CGSizeMake(ceilf(size.width), ceilf(size.height));
+        NSNumber *width = [NSNumber numberWithFloat:adjustedSize.width + 20.0f];
+        [widths addObject:width];
+    }
+    
+    return widths;
+}
+
+- (void)viewShowShadow:(UIView *)view shadowRadius:(CGFloat)shadowRadius shadowOpacity:(CGFloat)shadowOpacity
+{
+    view.layer.shadowRadius = shadowRadius;
+    view.layer.shadowOpacity = shadowOpacity;
+}
+
+- (CGFloat)popMenuHeight
+{
+    CGFloat marginX = kWidth *10/320;
+    CGFloat marginY = kWidth *10/320;
+    CGFloat buttonH = kHeight *25/568;
+    CGFloat buttonX = marginX;
+    CGFloat buttonY = marginY;
+    CGFloat maxHeight = SCREEN_HEIGHT - STATUS_BAR_HEIGHT - NAVIGATION_BAR_HEIGHT - NAV_TAB_BAR_HEIGHT;
+    for (NSInteger index = 0; index < [_itemsWidth count]; index++)
+    {
+        buttonX += ([_itemsWidth[index] floatValue] + marginX);
+        
+        @try {
+            if ((buttonX + [_itemsWidth[index + 1] floatValue] + marginX) >= SCREEN_WIDTH)
+            {
+                buttonX = marginX;
+                buttonY += (buttonH + marginY);
+            }
+        }
+        @catch (NSException *exception) {
+            
+        }
+        @finally {
+            
+        }
+//        NSLog(@"\n popMenuHeight: %f - %f \n", buttonX, buttonY);
+    }
+    
+    buttonY = (buttonY < maxHeight) ? maxHeight : buttonY + (buttonH + marginY);
+    return buttonY;
+}
+
+
+- (void)popItemMenu:(BOOL)pop {
+
+    if (pop) {
+        
+        [self viewShowShadow:_arrowButton shadowRadius:DOT_COORDINATE shadowOpacity:DOT_COORDINATE];
+        _navgationTabBar.hidden = YES;
+        _tipsView.hidden = !_navgationTabBar.hidden;
+        _arrowButton.image = [UIImage imageNamed:@"arrowUp.png"];
+        
+        if (!_popView)
+        {
+            _popView = [[SCPopView alloc] initWithFrame:CGRectMake(DOT_COORDINATE, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, self.frame.size.height - NAVIGATION_BAR_HEIGHT)];
+            _popView.contentSize = CGSizeMake(SCREEN_WIDTH, [self popMenuHeight]);
+            _popView.popDelegate = self;
+            _popView.titleFont = _titleFont;
+            _popView.itemNames = _itemTitles;
+            [self addSubview:_popView];
+        }
+        _popView.currentItemIndex = _currentItemIndex;
+        _popView.itemNames = _itemTitles;
+        _popView.hidden = NO;
+        
+    } else {
+        
+        _popView.hidden = !_popView.hidden;
+        _tipsView.hidden = !_tipsView.hidden;
+        _navgationTabBar.hidden = !_navgationTabBar.hidden;
+        _arrowButton.layer.shadowRadius = 4.0f;
+        _arrowButton.layer.shadowOpacity = 20.0f;
+        _arrowButton.layer.shadowOffset = CGSizeMake(0, -5);
+        _arrowButton.image = [UIImage imageNamed:@"arrowDown.png"];
+    }
+}
+
+/*
+- (void)popItemMenu:(BOOL)pop
+{
+    if (pop)
+    {
+        [self viewShowShadow:_arrowButton shadowRadius:DOT_COORDINATE shadowOpacity:DOT_COORDINATE];
+        [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _navgationTabBar.hidden = YES;
+            _tipsView.hidden = !_navgationTabBar.hidden;
+            _arrowButton.transform = CGAffineTransformMakeRotation(M_PI);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1f animations:^{
+                if (!_popView)
+                {
+                    _popView = [[SCPopView alloc] initWithFrame:CGRectMake(DOT_COORDINATE, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, self.frame.size.height - NAVIGATION_BAR_HEIGHT)];
+                    _popView.contentSize = CGSizeMake(SCREEN_WIDTH, [self popMenuHeight]);
+                    _popView.popDelegate = self;
+                    _popView.titleFont = _titleFont;
+                    _popView.itemNames = _itemTitles;
+//                    NSLog(@"\n %@ ----- %@ \n", NSStringFromCGRect(self.frame), NSStringFromCGRect(_popView.frame));
+//                    self.userInteractionEnabled = YES;
+//                    _popView.userInteractionEnabled = YES;
+                    [self addSubview:_popView];
+                }
+                _popView.hidden = NO;
+            }];
+        }];
+    }
+    else
+    {
+        [UIView animateWithDuration:0.5f animations:^{
+            _popView.hidden = !_popView.hidden;
+            _tipsView.hidden = !_tipsView.hidden;
+            _arrowButton.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            _navgationTabBar.hidden = !_navgationTabBar.hidden;
+            _arrowButton.layer.shadowRadius = 4.0f;
+            _arrowButton.layer.shadowOpacity = 20.0f;
+            _arrowButton.layer.shadowOffset = CGSizeMake(0, -5);
+        }];
+    }
+}
+*/
+- (void)changeTabBarToIndex:(NSInteger)newIndex fromIndex:(NSInteger)oldIndex{
+    
+    if(newIndex == oldIndex){
+        return;
+    }
+    
+    CGFloat minOffset = 0;
+    
+    UIButton *lastBtn = _items.lastObject;
+    CGFloat maxOffset = (lastBtn.frame.origin.x + lastBtn.frame.size.width) - SCREEN_WIDTH + (_canPopAllItemMenu? ARROW_BUTTON_WIDTH : 0);
+    
+    UIButton *button = _items[newIndex];
+    
+    // max length is smaller than tabbar length
+    if(maxOffset <= 0){
+        [self doLineAnimation:button index:newIndex];
+        return;
+    }
+    
+    if(newIndex == 0){
+        [_navgationTabBar setContentOffset:CGPointMake(minOffset, DOT_COORDINATE) animated:YES];
+        [self doLineAnimation:button index:newIndex];
+        return;
+    }
+    
+    // is last
+    if(newIndex == _itemTitles.count-1){
+        [_navgationTabBar setContentOffset:CGPointMake(maxOffset, DOT_COORDINATE) animated:YES];
+        [self doLineAnimation:button index:newIndex];
+        return;
+    }
+    
+//    BOOL isForward = newIndex > oldIndex;
+//    NSInteger nextIndex = newIndex + (isForward? 1 : -1);
+//    UIButton *nextBtn = _items[nextIndex];
+//    
+//    CGFloat newOffset = (nextBtn.frame.origin.x + nextBtn.frame.size.width) - SCREEN_WIDTH + (_canPopAllItemMenu? ARROW_BUTTON_WIDTH : 0);
+//    if(!isForward){
+//        newOffset = nextBtn.frame.origin.x;
+//    }
+//    
+//    if(nextIndex != 0 && newIndex != _items.count-1){
+//        newOffset += (isForward? 0.0f : -0.0f);
+//    }
+    _currentItemIndex = newIndex;
+//    CGFloat flag = _canPopAllItemMenu ? (SCREEN_WIDTH - ARROW_BUTTON_WIDTH) : SCREEN_WIDTH;
+    CGFloat flag = 0;
+    CGFloat offsetX = 0;
+    flag = SCREEN_WIDTH;
+    if (_canPopAllItemMenu) {
+        flag = (SCREEN_WIDTH - ARROW_BUTTON_WIDTH);
+        offsetX = button.frame.origin.x + button.frame.size.width - flag;
+        offsetX = offsetX + (_navgationTabBar.frame.size.width - button.frame.size.width)/2;
+    }
+    
+    if (_hasAllBtn && _itemsWidth.count) {
+        flag = (SCREEN_WIDTH + [_itemsWidth.firstObject floatValue]/2);
+        offsetX = button.frame.origin.x + button.frame.size.width - flag;
+        offsetX = offsetX + (_navgationTabBar.frame.size.width - button.frame.size.width)/2;
+    }
+    
+//    CGFloat offsetX = button.frame.origin.x + button.frame.size.width - flag;
+//    if (_currentItemIndex < [_itemTitles count] - 1) {
+//        
+//        offsetX = offsetX + (_navgationTabBar.frame.size.width - button.frame.size.width)/2;
+//    }
+    
+    if(offsetX < minOffset){
+        offsetX = minOffset;
+    }
+    
+    if(offsetX > maxOffset) {
+        offsetX = maxOffset;
+    }
+    
+    [_navgationTabBar setContentOffset:CGPointMake(offsetX, DOT_COORDINATE) animated:YES];
+
+    [self doLineAnimation:button index:newIndex];
+}
+
+- (void)doLineAnimation:(UIButton *)button index:(NSInteger)index {
+    [UIView animateWithDuration:0.2f animations:^{
+        _line.frame = CGRectMake(button.frame.origin.x + 10.0f, _line.frame.origin.y, [_itemsWidth[index] floatValue] - 20.0f, _line.frame.size.height);
+    }];
+
+    for (UIButton *btn in _items) {
+        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    [button setTitleColor:redColorSelf forState:UIControlStateNormal];
+}
+
+#pragma mark -
+#pragma mark - Public Methods
+- (void)setArrowImage:(UIImage *)arrowImage
+{
+    _arrowImage = arrowImage ? arrowImage : _arrowImage;
+    _arrowButton.image = _arrowImage;
+}
+
+
+- (void)setCurrentItemIndex:(NSInteger)currentItemIndex
+{
+    [self changeTabBarToIndex:currentItemIndex fromIndex:_currentItemIndex];
+    _currentItemIndex = currentItemIndex;
+    
+}
+
+- (void)updateData
+{
+//    _arrowButton.backgroundColor = self.backgroundColor;
+    _arrowButton.backgroundColor = [UIColor whiteColor];
+    
+    _itemsWidth = [self getButtonsWidthWithTitles:_itemTitles];
+    if (_itemsWidth.count)
+    {
+        CGFloat contentWidth = [self contentWidthAndAddNavTabBarItemsWithButtonsWidth:_itemsWidth];
+        _navgationTabBar.contentSize = CGSizeMake(contentWidth, DOT_COORDINATE);
+    }
+}
+
+- (void)refresh
+{
+    [self popItemMenu:_popItemMenu];
+}
+
+#pragma mark - SCFunctionView Delegate Methods
+#pragma mark -
+- (void)itemPressedWithIndex:(NSInteger)index
+{
+    [self functionButtonPressed];
+    [_delegate itemDidSelectedWithIndex:index];
+}
+
+
+
+@end

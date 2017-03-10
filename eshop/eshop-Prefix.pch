@@ -1,0 +1,19 @@
+//
+//  eshop-Prefix.pch
+//  eshop
+//
+//  Created by gs on 2017/03/02.
+
+// MPAAS BEGIN
+// This part is maintained by MPaaS plugin automatically. Please don't modify.
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <MPHotpatchSDK/MPHotpatchSDK.h>
+#import <MPRemoteLogging/MPRemoteLogging.h>
+#import <MPHttpClient/MPHttpClient.h>
+#import <MPAnalysis/MPAnalysis.h>
+#import <mPaas/mPaas.h>
+
+#endif
+// MPAAS END

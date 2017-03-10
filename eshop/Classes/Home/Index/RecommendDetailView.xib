@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecommendDetailView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxe-LA-wme">
+                    <rect key="frame" x="0.0" y="0.0" width="599.5" height="599.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="木工" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kg5-1P-oXE">
+                            <rect key="frame" x="5" y="20" width="589.5" height="76"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="磨削刨凿不在话下" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ain-oQ-yUT">
+                            <rect key="frame" x="5" y="104" width="589.5" height="76"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="37D-Kc-g2w" customClass="EGOImageView">
+                            <rect key="frame" x="25" y="195" width="549.5" height="384.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="37D-Kc-g2w" secondAttribute="height" multiplier="30:21" id="9DP-ZL-HQp"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="9DP-ZL-HQp"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="9DP-ZL-HQp"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zx7-j1-IOP">
+                            <rect key="frame" x="0.0" y="0.0" width="599.5" height="599.5"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Zx7-j1-IOP" firstAttribute="top" secondItem="gxe-LA-wme" secondAttribute="top" id="0Rv-CC-Gqn"/>
+                        <constraint firstItem="37D-Kc-g2w" firstAttribute="top" secondItem="ain-oQ-yUT" secondAttribute="bottom" constant="15" id="30m-gO-SBP"/>
+                        <constraint firstItem="kg5-1P-oXE" firstAttribute="top" secondItem="gxe-LA-wme" secondAttribute="top" constant="20" id="3sb-S0-UeC"/>
+                        <constraint firstItem="ain-oQ-yUT" firstAttribute="leading" secondItem="gxe-LA-wme" secondAttribute="leading" constant="5" id="6yg-Ch-I3w"/>
+                        <constraint firstItem="Zx7-j1-IOP" firstAttribute="leading" secondItem="gxe-LA-wme" secondAttribute="leading" id="J3E-QZ-PQo"/>
+                        <constraint firstAttribute="bottom" secondItem="Zx7-j1-IOP" secondAttribute="bottom" id="MCb-0F-l1E"/>
+                        <constraint firstItem="37D-Kc-g2w" firstAttribute="leading" secondItem="gxe-LA-wme" secondAttribute="leading" constant="25" id="XIq-kV-zxS"/>
+                        <constraint firstItem="ain-oQ-yUT" firstAttribute="height" secondItem="kg5-1P-oXE" secondAttribute="height" id="agH-05-GOT"/>
+                        <constraint firstAttribute="trailing" secondItem="37D-Kc-g2w" secondAttribute="trailing" constant="25" id="fLD-QG-HeO"/>
+                        <constraint firstAttribute="trailing" secondItem="kg5-1P-oXE" secondAttribute="trailing" constant="5" id="fzm-bx-veI"/>
+                        <constraint firstAttribute="bottom" secondItem="37D-Kc-g2w" secondAttribute="bottom" constant="20" id="g00-jz-0jA"/>
+                        <constraint firstItem="ain-oQ-yUT" firstAttribute="top" secondItem="kg5-1P-oXE" secondAttribute="bottom" constant="8" id="hxb-p6-L1a"/>
+                        <constraint firstItem="kg5-1P-oXE" firstAttribute="leading" secondItem="gxe-LA-wme" secondAttribute="leading" constant="5" id="k5c-GX-p6b"/>
+                        <constraint firstAttribute="trailing" secondItem="Zx7-j1-IOP" secondAttribute="trailing" id="liP-cF-Ytn"/>
+                        <constraint firstAttribute="trailing" secondItem="ain-oQ-yUT" secondAttribute="trailing" constant="5" id="ww8-23-uXb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gxe-LA-wme" secondAttribute="trailing" constant="0.5" id="27h-q3-0KB"/>
+                <constraint firstAttribute="bottom" secondItem="gxe-LA-wme" secondAttribute="bottom" constant="0.5" id="ghj-AB-xeu"/>
+                <constraint firstItem="gxe-LA-wme" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oxy-tz-90L"/>
+                <constraint firstItem="gxe-LA-wme" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tkC-PI-Ux1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentLabel" destination="ain-oQ-yUT" id="ok1-2h-om9"/>
+                <outlet property="imageView" destination="37D-Kc-g2w" id="xBr-Qw-R9o"/>
+                <outlet property="recommendBtn" destination="Zx7-j1-IOP" id="9eB-ms-q4p"/>
+                <outlet property="titleLabel" destination="kg5-1P-oXE" id="iy0-uI-9yQ"/>
+            </connections>
+            <point key="canvasLocation" x="-27" y="-541"/>
+        </view>
+    </objects>
+</document>

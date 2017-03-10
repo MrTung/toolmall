@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="index_nav_btnTitle">请输入产品名称</string>
+    <string name="index_recommend_title">猫工推荐</string>
+    <string name="index_recommend_more">更多</string>
+    <string name="index_hotactive_title">热门活动</string>
+    <string name="index_hotactive_more"></string>
+    <string name="index_hotactiveOne_title">限时抢购</string>
+    <string name="index_hotactiveOne_contentPrice">%@元</string>
+    <string name="index_hotactiveOne_contentDes">秒杀</string>
+    <string name="index_todayBrand_title">今日大牌</string>
+    <string name="index_todayBrand_more">更多</string>
+    <string name="index_allclassify_title">全部分类</string>
+    <string name="index_allclassify_more">详情</string>
+    <string name="index_onlineweb_title">点击联系:</string>
+    <string name="index_onlineweb_content">在线客服</string>
+    <string name="index_onlinePhone_title">热线电话:</string>
+    <string name="index_webView_navTitle">联系客服</string>
+    <string name="index_force_title">立即更新</string>
+    <string name="index_remind_cancelTitle">立即更新</string>
+    <string name="index_remind_otherTitle">以后再说</string>
+
+
+    <string name="tollMallRDVC_navItem_title">猫工推荐</string>
+    
+    <string name="catRoot_navItem_title">全部分类</string>
+    
+    
+    <string name="cartVC_navItem_title">购物车</string>
+    <string name="cartVC_btnSelAllWord_title">全选</string>
+    <string name="cartVC_btnDelAllWord_title">删除</string>
+    <string name="cartVC_labelNotIncludeFreight_title">不包含运费</string>
+    <string name="cartVC_lbTotalWord_title">合计:</string>
+    <string name="cartVC_btnSett_titleZero">结算(0)</string>
+    <string name="cartVC_btnSett_titleData">结算(%d)</string>
+    <string name="cartVC_btnSett_titleMax">结算(...)</string>
+    <string name="cartVC_noResultView_desc">购物车还没有商品</string>
+    <string name="cartVC_deleteAlert_chooseMsg">确定删除选中商品？</string>
+    <string name="cartVC_toastNotification_msg1">请选择要删除的商品</string>
+    <string name="cartVC_toastNotification_msg2">请选择商品</string>
+    <string name="cartVC_promotionTitleView_clickpromotionMsg">,点击查看</string>
+    <string name="cartVC_lblDiscount_title">已满足优惠条件, 优惠%@元</string>
+    <string name="cartVC_lbDiscountMoney_title">已优惠 </string>
+    <string name="cartVC_deleteView_title">删除</string>
+    
+    
+    <string name="myAccount_navItem_title">个人账户</string>
+    <string name="myAccount_navRightButton_title">设置</string>
+    <string name="myAccount_view1_nameStr">未登录</string>
+    <string name="myAccount_view1_phoneStr">点击立即登录</string>
+    <string name="myAccount_view1_btn_mobileno">请绑定手机</string>
+    <string name="myAccount_view2_orderTitle">我的订单</string>
+    <string name="myAccount_view2_orderMore">查看全部订单</string>
+    <string name="myAccount_view2_btn1">待付款</string>
+    <string name="myAccount_view2_btn2">待发货</string>
+    <string name="myAccount_view2_btn3">待收货</string>
+    <string name="myAccount_view2_btn4">待评价</string>
+    <string name="myAccount_view3_label1">收藏夹</string>
+    <string name="myAccount_view3_label2">优惠券</string>
+    <string name="myAccount_view3_label3">收货地址</string>
+    <string name="myAccount_view3_label4">在线咨询</string>
+    <string name="myAccount_view4_footerTitle">足迹</string>
+    <string name="myAccount_view4_footerMore">更多</string>
+    <string name="myAccount_toastNotification_msg1">保存图片成功</string>
+    <string name="myAccount_toastNotification_msg2">保存图片失败</string>
+    <string name="myAccount_webView_navTitle">联系客服</string>
+    
+
+    <string name="improveInfoVC_navItem_title">完善信息</string>
+    <string name="improveInfoVC_label1_title">完善信息，获得10元券</string>
+    <string name="improveInfoVC_label2_title">用户名:</string>
+    <string name="improveInfoVC_label3_title">用户名仅支持修改一次。</string>
+    <string name="improveInfoVC_sexLabel_title">性别:</string>
+    <string name="improveInfoVC_label4_title">生日:</string>
+    <string name="improveInfoVC_txtBirthday_plaTitle">请选择</string>
+    <string name="improveInfoVC_label5_title">地址:</string>
+    <string name="improveInfoVC_txtAddress_plaTitle">请选择</string>
+    <string name="improveInfoVC_jobLabel_title">职业:</string>
+    <string name="improveInfoVC_btnCommit_title">提交信息，立获优惠</string>
+    <string name="improveInfoVC_radioButton_rb1">男</string>
+    <string name="improveInfoVC_radioButton_rb2">女</string>
+    <string name="improveInfoVC_radioButton_rb11">企业采购</string>
+    <string name="improveInfoVC_radioButton_rb12">五金个体户</string>
+    <string name="improveInfoVC_radioButton_rb13">装修工人</string>
+    <string name="improveInfoVC_radioButton_rb14">其他</string>
+    <string name="improveInfoVC_toastNotification_msg1">请输入用户名</string>
+    <string name="improveInfoVC_toastNotification_msg2">请选择性别</string>
+    <string name="improveInfoVC_toastNotification_msg3">请输入生日</string>
+    <string name="improveInfoVC_toastNotification_msg4">请选择地址区域</string>
+    <string name="improveInfoVC_toastNotification_msg5">请输入详细地址</string>
+    <string name="improveInfoVC_toastNotification_msg6">请选择职业</string>
+    <string name="improveInfoVC_alert_msg">提交成功，10元优惠券已经给您，是否前往优惠券列表查看？</string>
+    <string name="improveInfoVC_alert_sure">去看看</string>
+    
+    <string name="pbAlertController_lblMessage_title">提交成功，10元优惠券已经给您，是否前往优惠券列表查看？</string>
+    <string name="pbAlertController_btnConfirm_title">去看看</string>
+    <string name="pbAlertController_lblMessage_redRange">优惠券列表</string>
+
+
+    <string name="myOpinionVC_navItem_title">我的评价</string>
+    
+    
+    <string name="verifySecurityVC_navItem_title">安全校验</string>
+    <string name="verifySecurityVC_txtVerifyCode_leftViewTitle">校验码</string>
+    <string name="verifySecurityVC_txtVerifyCode_plaTitle">校验码</string>
+    <string name="verifySecurityVC_lblUserName_title">%@，您好！</string>
+    <string name="verifySecurityVC_label_title">我们已经发送了校验码到您的手机上:</string>
+    <string name="verifySecurityVC_btnNext_title">下一步</string>
+    <string name="verifySecurityVC_toastNotification_msg1">恭喜您，修改手机成功</string>
+    <string name="verifySecurityVC_toastNotification_msg2">抱歉，您的验证码有误</string>
+    <string name="verifySecurityVC_toastNotification_msg3">您还为输入验证码</string>
+    <string name="verifySecurityVC_btnVerifyCode_title1">重新获取</string>
+    <string name="verifySecurityVC_btnVerifyCode_title2">重新获取(%@)</string>
+
+
+    <string name="newMobileVC_navItem_title">修改手机</string>
+    <string name="newMobileVC_label_title">请输入新的手机号码:</string>
+    <string name="newMobileVC_txtNewNumber_leftViewTitle">手机号</string>
+    <string name="newMobileVC_txtNewNumber_plaTitle">新手机号</string>
+    <string name="newMobileVC_btnNext_title">下一步</string>
+    <string name="newMobileVC_toastNotification_msg1">抱歉，您的手机号输入有误</string>
+    <string name="newMobileVC_toastNotification_msg2">您还未输入新手机号码</string>
+    
+    
+    <string name="alterPasswordVC_navItem_title">修改登录密码</string>
+    <string name="alterPasswordVC_label1_title">请输入新的密码:</string>
+    <string name="alterPasswordVC_label2_title">密码由6-20位英文字母、数字或符号组成</string>
+    <string name="alterPasswordVC_txtNewPwd1_plaTitle">请输入新的密码</string>
+    <string name="alterPasswordVC_txtNewPwd2_plaTitle">新密码</string>
+    <string name="alterPasswordVC_txtNewPwd2_leftViewTitle">新密码</string>
+    <string name="alterPasswordVC_toastNotification_msg1">恭喜您，登录密码修改成功</string>
+    <string name="alterPasswordVC_toastNotification_msg2">您还未输入新密码</string>
+    <string name="alterPasswordVC_toastNotification_msg3">抱歉，两次密码不一样，请重新输入</string>
+    
+    
+    <string name="accountSecurityVC_navItem_title">账户安全</string>
+    <string name="accountSecurityVC_view1_label1">登录密码</string>
+    <string name="accountSecurityVC_view1_label2">*建议您定期修改密码，以加强密码安全</string>
+    <string name="accountSecurityVC_view2_label1">手机验证</string>
+    <string name="accountSecurityVC_view2_label2">*若您的验证手机已更换或停用，请及时修改更换</string>
+    
+
+    <string name="myInfoVC_navItem_title">我的资料</string>
+    <string name="myInfoVC_sexArray_index0">男</string>
+    <string name="myInfoVC_sexArray_index1">女</string>
+    <string name="myInfoVC_sexArray_index2">保密</string>
+    <string name="myInfoVC_imageArray_index0">拍照</string>
+    <string name="myInfoVC_imageArray_index1">从相册中选择</string>
+    <string name="myInfoVC_imageArray_index2">取消</string>
+    <string name="myInfoVC_version_string">(当前版本号:%@)</string>
+    <string name="myInfoVC_webView_navTitle">关于土猫</string>
+    <string name="myInfoVC_alert_title">提示</string>
+    <string name="myInfoVC_alert_msg">您确定要退出吗？</string>
+    <string name="myInfoVC_toastNotification_msg1">保存图片成功</string>
+    <string name="myInfoVC_toastNotification_msg2">保存图片失败</string>
+    <string name="myInfoVC_label1_title">头像</string>
+    <string name="myInfoVC_label2_title">用户名</string>
+    <string name="myInfoVC_lblUserName_title">username</string>
+    <string name="myInfoVC_label3_title">性别</string>
+    <string name="myInfoVC_lblSex_title">sex</string>
+    <string name="myInfoVC_label4_title">出生年月</string>
+    <string name="myInfoVC_lblBirthday_title">birthday</string>
+    <string name="myInfoVC_label5_title">账户安全</string>
+    <string name="myInfoVC_label5_more">可修改密码</string>
+    <string name="myInfoVC_label6_title">关于手机土猫</string>
+    <string name="myInfoVC_label6_more">查看</string>
+    <string name="myInfoVC_btnQuit_title">退出登录</string>
+    
+    
+    <string name="userNameVC_navItem_title">修改用户名</string>
+    <string name="userNameVC_label_title">提醒：用户名仅能修改一次</string>
+    <string name="userNameVC_btn_title">确认修改</string>
+
+
+    <string name="orderList_navItem_title">订单搜索</string>
+    <string name="orderList_btnAll_title">全部</string>
+    <string name="orderList_btnAwaitPay_title">待付款</string>
+    <string name="orderList_btnAwaitShip_title">待发货</string>
+    <string name="orderList_btnShipped_title">待收货</string>
+    <string name="orderList_btnAwaitReview_title">待评价</string>
+    <string name="orderList_cell_prodMakerModel">暂无</string>
+    <string name="orderList_footerView_lnFooterDesc">共%lu件商品,合计:%@(运费:%@)</string>
+    <string name="orderList_viewFootprint_title">足迹</string>
+    <string name="orderList_viewFootprint_more">更多</string>
+    <string name="orderList_toastNotification_msg1">已提醒卖家发货</string>
+    <string name="orderList_toastNotification_msg2">操作成功</string>
+    <string name="orderList_toastNotification_msg3">操作成功</string>
+    <string name="orderList_alert_title">提示</string>
+    <string name="orderList_alert_msg">请收到货后，再确认收货！是否继续?</string>
+    <string name="orderList_webView_navTitle">物流信息</string>
+    
+    
+    <string name="orderListCell_label1_title">商品编号:</string>
+    <string name="orderListCell_label2_title">品牌:</string>
+    <string name="orderListCell_label3_title">制造商型号:</string>
+    
+    <string name="cancelOrder_picker_title">取消理由</string>
+    <string name="cancelOrder_picker_done">完成</string>
+    <string name="cancelOrder_pickerData_index0">不想买了</string>
+    <string name="cancelOrder_pickerData_index1">尺寸错了</string>
+    <string name="cancelOrder_pickerData_index2">地址错了</string>
+    <string name="cancelOrder_pickerData_index3">其他</string>
+    
+    <string name="orderListItemHeader_label_title">订单编号:</string>
+
+
+    <string name="orderListItemFooter_btn1_title">立即付款</string>
+    <string name="orderListItemFooter_btn2_title">查看物流</string>
+    <string name="orderListItemFooter_btn3_title">确认收货</string>
+    <string name="orderListItemFooter_btn4_title">提醒发货</string>
+    <string name="orderListItemFooter_btn5_title">发表评论</string>
+    <string name="orderListItemFooter_btn6_title">取消订单</string>
+    <string name="orderListItemFooter_btn7_title">我的评价</string>
+    
+    
+    <string name="orderInfoController_navItem_title">订单详情</string>
+    <string name="orderInfoController_toastNotification_msg1">已提醒卖家发货</string>
+    <string name="orderInfoController_toastNotification_msg2">操作成功</string>
+    <string name="orderInfoController_toastNotification_msg3">操作成功</string>
+    <string name="orderInfoController_btn1_title">立即付款</string>
+    <string name="orderInfoController_btn2_title">查看物流</string>
+    <string name="orderInfoController_btn3_title">确认收货</string>
+    <string name="orderInfoController_btn4_title">提醒发货</string>
+    <string name="orderInfoController_btn5_title">发表评论</string>
+    <string name="orderInfoController_btn6_title">取消订单</string>
+    <string name="orderInfoController_alert_title">提示</string>
+    <string name="orderInfoController_alert_msg">请收到货后，再确认收货！是否继续?</string>
+    <string name="orderInfoController_webView_navTitle">物流信息</string>
+    
+    <string name="orderInfoCell_label_title">[赠品] %@ X%d</string>
+    
+    <string name="orderInfoHeader_webView_navTitle">物流信息</string>
+    <string name="orderInfoHeader_lbOrderId_title">订单编号: </string>
+    <string name="orderInfoHeader_lbCreateTime_title">创建时间: </string>
+    <string name="orderInfoHeader_lbOrderStatus_title">订单状态: </string>
+    <string name="orderInfoHeader_lbReceiverName_title">收件人: </string>
+    <string name="orderInfoHeader_lbReceiverAddress_title">收货地址: </string>
+    
+    
+    <string name="orderInfoFooter_lable1_title">运费:</string>
+    <string name="orderInfoFooter_lable2_title">优惠券:</string>
+    <string name="orderInfoFooter_lable3_title">实付金额:</string>
+    <string name="orderInfoFooter_lable4_title">支付方式</string>
+    <string name="orderInfoFooter_lable5_title">配送方式</string>
+    <string name="orderInfoFooter_lable6_title">优惠</string>
+    <string name="orderInfoFooter_lable7_title">发票信息</string>
+    <string name="orderInfoFooter_lable8_title">买家留言:</string>
+    <string name="orderInfoFooter_lbOrderInvoice_title">不需要发票</string>
+    <string name="orderInfoFooter_lbPromAmount_title">(组合优惠省%@)</string>
+    
+    <string name="orderSearchVC_navItem_txtSearch">订单编号/商品编号/商品标题</string>
+    <string name="orderSearchVC_navItem_btnR2">搜索</string>
+    <string name="orderSearchVC_label_title">最近搜索</string>
+    <string name="orderSearchVC_btnClearSearchHistory_title">清空搜索历史</string>
+    <string name="orderSearchVC_toastNotification_msg1">删除成功</string>
+    <string name="orderSearchVC_toastNotification_msg2">当前没有历史记录</string>
+    <string name="orderSearchVC_toastNotification_msg3">请输入关键字</string>
+    
+    
+    <string name="activityVC_navItem_title">专题活动</string>
+    <string name="activityVC_indexMenu_menuItem">首页</string>
+    <string name="activityVC_msgMenu_menuItem">消息</string>
+    <string name="activityVC_viewTextContent_lblDesc1">活动介绍:</string>
+    <string name="activityVC_viewTextContent_lblDesc2">活动介绍: %@</string>
+    <string name="activityVC_viewTextContent_lblDate">活动时间: %@-%@</string>
+    <string name="activityVC_viewTextContent_lblShow1">展开详情</string>
+    <string name="activityVC_viewTextContent_lblShow2">收起详情</string>
+    <string name="activityVC_noResultView_desc">没有结果</string>
+    
+    
+    <string name="moreBrands_navItem_title">品牌推荐</string>
+    
+    <string name="moreBrandsHeader_label1_title">全部品牌</string>
+    <string name="moreBrandsHeader_label2_title">本周热推品牌</string>
+    <string name="moreBrandsHeader_label3_title">其他品牌列表</string>
+    <string name="moreBrandsHeader_btn_title">更多 ></string>
+    
+    
+    <string name="footPrintVC_navItem_title">足迹</string>
+    <string name="footPrintVC_noResultView_desc">没有结果</string>
+    <string name="footPrintVC_toastNotification_msg">已加入购物车</string>
+    <string name="footPrintVC_cell_productBrand">品牌：%@</string>
+    <string name="footPrintVC_cell_productModel1">型号：%@</string>
+    <string name="footPrintVC_cell_productModel2">型号：暂无</string>
+    
+    
+    <string name="getVerifyCode_navItem_title">获取验证码</string>
+    <string name="getVerifyCode_toastNotification_msg">用户名或手机号错误</string>
+    <string name="getVerifyCode_label_title">请输入用户名或手机号</string>
+    <string name="getVerifyCode_txt_Name_plaTitle">用户名/邮箱/已验证手机</string>
+    <string name="getVerifyCode_txt_Varify_plaTitle">请输入验证码</string>
+    <string name="getVerifyCode_btn_title">获取短信验证码</string>
+
+
+    <string name="shopLogin_navItem_title">登录</string>
+    <string name="shopLogin_toastNotification_msg1">请输入用户名</string>
+    <string name="shopLogin_toastNotification_msg2">请输入密码</string>
+    <string name="shopLogin_toastNotification_msg3">请输入验证码</string>
+    <string name="shopLogin_txt_Name_plaTitle">用户名/邮箱/已验证手机</string>
+    <string name="shopLogin_txt_Pwd_plaTitle">密码</string>
+    <string name="shopLogin_txt_Varify_plaTitle">请输入验证码</string>
+    <string name="shopLogin_btnLogin_title">登录</string>
+    <string name="shopLogin_btnForgetPsw_title">忘记密码?</string>
+    <string name="shopLogin_btnRegiste_title">还没有帐号，免费注册</string>
+    <string name="shopLogin_label1_title">无需注册，直接登录</string>
+    <string name="shopLogin_label2_title">QQ登录</string>
+    <string name="shopLogin_label3_title">微信登录</string>
+
+
+    <string name="registeVC_navItem_title">注册</string>
+    <string name="registeVC_toastNotification_msg1">请输入手机号</string>
+    <string name="registeVC_toastNotification_msg2">请输入手机号</string>
+    <string name="registeVC_toastNotification_msg3">请输入短信验证码</string>
+    <string name="registeVC_toastNotification_msg4">请输入密码</string>
+    <string name="registeVC_webView_navTitle">服务协议</string>
+    <string name="registeVC_btnMessage_title">重新发送</string>
+    <string name="registeVC_btnMessage2_title">获取验证码</string>
+    <string name="registeVC_phoneTextField_plaTitle">用户名/邮箱/已验证手机</string>
+    <string name="registeVC_messageTextField_plaTitle">请输入验证码</string>
+    <string name="registeVC_passwordTextField_plaTitle">密码</string>
+    <string name="registeVC_userProtocolButton_title">《土猫网注册协议》</string>
+    <string name="registeVC_btnRegiste_title">确认注册</string>
+    <string name="registeVC_loginBtn_title">已有账号，直接登录</string>
+    <string name="registeVC_label1_title">注册即视为同意</string>
+    <string name="registeVC_label2_title">无需注册，直接登录</string>
+    <string name="registeVC_label3_title">QQ登录</string>
+    <string name="registeVC_label4_title">微信登录</string>
+
+
+    <string name="firmMobile_navItem_title">快速绑定手机</string>
+    <string name="firmMobile_txtPhoneNumber_plaTitle">请输入手机号</string>
+    <string name="firmMobile_txtMessageCode_plaTitle">请输入短信验证码</string>
+    <string name="firmMobile_btnMessageCode_plaTitle">获取验证码</string>
+    <string name="firmMobile_txtPassword_plaTitle">请设置登录密码</string>
+    <string name="firmMobile_label_title">注册即视为同意</string>
+    <string name="firmMobile_lblProtocol_title">《土猫网用户注册协议》</string>
+    <string name="firmMobile_btnFirmNow_title">立即绑定</string>
+    <string name="firmMobile_lblDescription_title">绑定手机后，您可以用绑定手机快捷登录</string>
+    <string name="firmMobile_toastNotification_msg1">请输入手机号</string>
+    <string name="firmMobile_toastNotification_msg2">请输入手机号</string>
+    <string name="firmMobile_toastNotification_msg3">请输入短信验证码</string>
+    <string name="firmMobile_toastNotification_msg4">请输入密码</string>
+    <string name="firmMobile_btnMessageCode1_title">发送验证码</string>
+    <string name="firmMobile_btnMessageCode2_title">重新获取%@</string>
+    
+    
+    <string name="findPasswordVC_navItem_title">找回密码</string>
+    <string name="findPasswordVC_indexMenu_menuItem">首页</string>
+    <string name="findPasswordVC_msgMenu_menuItem">消息</string>
+    
+    
+    <string name="orderController_navItem_title">确认订单</string>
+    <string name="orderController_orderFooter_lbAmount">合计:</string>
+    <string name="orderController_toastNotification_msg1">订单创建成功</string>
+    <string name="orderController_toastNotification_msg2">订单生成成功</string>
+    <string name="orderController_toastNotification_msg3">请选择收件地址</string>
+    <string name="orderController_toastNotification_msg4">抱歉，您没有优惠券</string>
+    <string name="orderController_footerView_lbCouponName">%@(优惠:%@)</string>
+    <string name="orderController_footerView_lbFreight">%@(包邮)</string>
+    <string name="orderController_footerView_lblItemTotal1">合计 %@</string>
+    <string name="orderController_footerView_lblItemTotal2">已优惠%@  合计 %@</string>
+    <string name="orderController_footerView_lbInvoice1">普通发票</string>
+    <string name="orderController_footerView_lbInvoice2">增值税发票</string>
+    <string name="orderController_footerView_lbInvoice3">不需要发票</string>
+    
+<!--    <string name="orderHeadView_lblReceiver_title1">收件人:</string>-->
+<!--    <string name="orderHeadView_lblReceiver_title2">收件人:%@    %@</string>-->
+<!--    <string name="orderHeadView_lblAddress_title1">收件地址:</string>-->
+<!--    <string name="orderHeadView_lblAddress_title2">收件地址:%@</string>-->
+    <string name="orderHeadView_lblAddress_title">请添加你的收货地址</string>
+    
+    <string name="orderFooter_label_title">含运送费</string>
+    <string name="orderFooter_btn_title">立即购买</string>
+    
+    <string name="orderItemFooter_label1_title">优惠</string>
+    <string name="orderItemFooter_label2_title">运费</string>
+    <string name="orderItemFooter_label3_title">买家留言:</string>
+    <string name="orderItemFooter_label4_title">支付方式</string>
+    <string name="orderItemFooter_label5_title">发票信息</string>
+    <string name="orderItemFooter_txtBuyerMessage_plaTitle">选填，可填写您和卖家达成一致的要求</string>
+    
+    
+    <string name="paymentPlugins_navItem_title">在线支付</string>
+    <string name="paymentPlugins_alert_title">确定要放弃付款?</string>
+    <string name="paymentPlugins_alert_message">该订单23小时59分钟后将被取消，请尽快完成付款</string>
+    <string name="paymentPlugins_alert_cancelTitle">继续支付</string>
+    <string name="paymentPlugins_alert_otherTitle">放弃付款</string>
+    
+    
+    <string name="shippingMethods_navItem_title">配送方式</string>
+    
+    <string name="paymentMethods_navItem_title">支付方式</string>
+    
+    
+    <string name="orderInvoice_navItem_title">发票信息</string>
+    <string name="orderInvoice_leftMargin_size">发票抬头:</string>
+    <string name="orderInvoice_btnSubmit_title">提交</string>
+    <string name="orderInvoice_toastNotification_msg1">请输入发票抬头</string>
+    <string name="orderInvoice_toastNotification_msg2">请输入单位名称</string>
+    <string name="orderInvoice_toastNotification_msg3">请输入单位地址</string>
+    <string name="orderInvoice_toastNotification_msg4">请输入单位电话</string>
+    <string name="orderInvoice_toastNotification_msg5">请输入开户行</string>
+    <string name="orderInvoice_toastNotification_msg6">请输入银行帐号</string>
+    <string name="orderInvoice_toastNotification_msg7">请输入税号</string>
+    <string name="orderInvoice_btnRegTaxWord_title">普通发票</string>
+    <string name="orderInvoice_btnVatTaxWord_title">增值税发票</string>
+    <string name="orderInvoice_btnNoTaxWord_title">不需要</string>
+    <string name="orderInvoice_regTaxView_label">发票抬头:</string>
+    <string name="orderInvoice_vatTaxView_label1">单位名称:</string>
+    <string name="orderInvoice_vatTaxView_label2">单位地址:</string>
+    <string name="orderInvoice_vatTaxView_label3">单位电话:</string>
+    <string name="orderInvoice_vatTaxView_label4">开  户  行:</string>
+    <string name="orderInvoice_vatTaxView_label5">银行帐号:</string>
+    <string name="orderInvoice_vatTaxView_label6">税        号:</string>
+    <string name="orderInvoice_vatInvoiceDesc_title">        需开具增值税专用发票的顾客，需要提供以下材料并加盖公章之后，扫描发送到土猫网邮箱中： ①营业执照副本，②税务登记证副本复印件，③一般纳税人资格证书， ④银行开户许可证，⑤组织机构代码证。
+            
+        土猫邮箱：toolmall@greatstartools.com，工作人员审核后将为您开具增值税发票。</string>
+
+
+    <string name="couponCodes_navItem_title">优惠券</string>
+    <string name="couponCodes_noResultView_desc">没有结果</string>
+    
+    <string name="couponCodeCell_label_title">有效期:</string>
+    
+    <string name="shareActionSheet_shareLabel_title">分享</string>
+    <string name="picAndTextActionSheet_cancelLabel_title">关闭</string>
+
+
+    <string name="productDetailVC_titleArr_index0">图文详情</string>
+    <string name="productDetailVC_titleArr_index1">商品参数</string>
+    <string name="productDetailVC_titleArr_index2">用户评价</string>
+    <string name="productDetailVC_showHUD_title">正在加载</string>
+    
+    
+    <string name="productInfoVC_navItem_title">商品详情</string>
+    <string name="productInfoVC_shareMenu_menuItem">分享</string>
+    <string name="productInfoVC_callLabel_title">客服</string>
+    <string name="productInfoVC_collectLabel_title">收藏</string>
+    <string name="productInfoVC_btnAddCar_title">加入购物车</string>
+    <string name="productInfoVC_btnBuyNow_title">立即购买</string>
+    <string name="productInfoVC_btnShare_label">分享</string>
+    <string name="productInfoVC_lbMarketPriceWord_title">土猫价:</string>
+    <string name="productInfoVC_lblBrand_title">品牌: </string>
+    <string name="productInfoVC_lblProId_title">型号: </string>
+    <string name="productInfoVC_lblSelections_title">请选择规格、数量</string>
+    <string name="productInfoVC_lblContinue_title">继续拖动，查看图文详情</string>
+    <string name="productInfoVC_deleteView_label">该商品已过期，不支持购买！</string>
+    <string name="productInfoVC_customActionSheetButton_title1">复制链接</string>
+    <string name="productInfoVC_customActionSheetButton_title2">二维码</string>
+    <string name="productInfoVC_customActionSheetButton_title3">微信</string>
+    <string name="productInfoVC_customActionSheetButton_title4">朋友圈</string>
+    <string name="productInfoVC_customActionSheetButton_title5">QQ</string>
+    <string name="productInfoVC_toastNotification_msg1">复制成功</string>
+    <string name="productInfoVC_toastNotification_msg2">已加入购物车</string>
+    <string name="productInfoVC_toastNotification_msg3">已加入收藏</string>
+    <string name="productInfoVC_toastNotification_msg4">已取消收藏</string>
+    <string name="productInfoVC_item1_title">支持货到付款</string>
+    <string name="productInfoVC_item2_title">假一赔十</string>
+    <string name="productInfoVC_item3_title">增值税发票</string>
+    <string name="productInfoVC_item4_title">七天无理由退货</string>
+    <string name="productInfoVC_item5_title">满500元免运费</string>
+    <string name="productInfoVC_sheet_title">服务说明</string>
+    <string name="productInfoVC_webView_navTitle">联系客服</string>
+    <string name="productInfoVC_makerModel_title">暂无</string>
+    <string name="productInfoVC_sn_title">商品编号:</string>
+    <string name="productInfoVC_merchant_title">由%@发货并提供售后服务</string>
+    <string name="productInfoVC_postage_title">运费:</string>
+    
+    <string name="prodImageScroll_navItem_title">商品图片</string>
+    
+    <string name="prodSpecificationVC_lbSpecs_title">已选 </string>
+    <string name="prodSpecificationVC_errmsg_title">选择 </string>
+    
+    
+    <string name="addressList_navItem_title">地址管理</string>
+    <string name="addressList_alert_title">提示</string>
+    <string name="addressList_alert_msg">确定删除?</string>
+    <string name="addressList_btnAddAddress_title">+ 新建地址</string>
+    
+    
+    <string name="addressListCell_label_title">默认地址</string>
+    <string name="addressListCell_label2_title">编辑</string>
+    <string name="addressListCell_label3_title">删除</string>
+    <string name="addressListCell_btnSelect_title">选择</string>
+    
+    <string name="addressListHeaderView_addAddressLabel_title">添加新地址</string>
+    
+    <string name="addressController_navItem_title">修改地址</string>
+    <string name="addressController_btnEditSave_title">保存</string>
+    <string name="addressController_navItem2_title">新增地址</string>
+    <string name="addressController_btnNewSave_title">保存</string>
+    <string name="addressController_toastNotification_msg1">操作成功</string>
+    <string name="addressController_toastNotification_msg2">请输入收货人姓名</string>
+    <string name="addressController_toastNotification_msg3">请输入电话号码</string>
+    <string name="addressController_toastNotification_msg4">请选择地区</string>
+    <string name="addressController_toastNotification_msg5">请输入详细地址</string>
+    <string name="addressController_alert_title">提示</string>
+    <string name="addressController_alert_msg">确定删除?</string>
+    <string name="addressController_label1_title">收货人</string>
+    <string name="addressController_label2_title">手机号码</string>
+    <string name="addressController_label3_title">所在地区</string>
+    <string name="addressController_label4_title">详细地址</string>
+    <string name="addressController_label5_title">设为默认地址</string>
+    <string name="addressController_consignee_plaTitle">请输入收货人</string>
+    <string name="addressController_tel_plaTitle">请输入手机号码</string>
+    <string name="addressController_area_title">点击选择</string>
+    <string name="addressController_addressTextView_plaTitle">请输入详细地址（5-120字）</string>
+    
+    <string name="regionSelector_nibName_title">地区选择</string>
+    
+    
+    <string name="favoriteListController_navItem_title">我的收藏</string>
+    <string name="favoriteListController_right_title">完成</string>
+    <string name="favoriteListController_right2_title">编辑</string>
+    <string name="favoriteListController_toastNotification_msg1">成功加入购物车</string>
+    <string name="favoriteListController_toastNotification_msg2">您当前还没有选择商品</string>
+    <string name="favoriteListController_noResultView_desc">您还没有收藏过商品</string>
+    <string name="favoriteListController_viewFootprint_title">热卖推荐</string>
+    <string name="favoriteListController_viewFootprint_more">更多</string>
+    
+    
+    <string name="couponCodeList_navItem_title">优惠券</string>
+    <string name="couponCodeList_btnExchange_title">优惠券码兑换通道(点击进入)</string>
+    <string name="couponCodeList_noResultView_desc">您还没有优惠券!</string>
+    
+    <string name="couponCodeListCell_lbUseScopeName_title">使用范围 </string>
+    <string name="couponCodeListCell_lbExpireDates_title">使用期限 %@ - %@</string>
+    <string name="couponCodeListCell_lbMinPrice_title">满%@可用</string>
+    
+    
+    <string name="couponInfoController_navItem_title">优惠券详情</string>
+    <string name="couponInfoController_lbMinPrice_title">满%@元可用</string>
+    <string name="couponInfoController_lblCouponCount_title">共%@份</string>
+    <string name="couponInfoController_lblCouponCount2_title">共%@份 (%@)</string>
+    <string name="couponInfoController_lblUsingLimitedDate_title">使用期限: %@-%@</string>
+    <string name="couponInfoController_lblUsingRange_title">使用范围: %@</string>
+    <string name="couponInfoController_lblUsinPlatform_title">使用平台: %@</string>
+    <string name="couponInfoController_lblUsingDescLimitOne_title">1、%@，仅能在土猫网使用</string>
+    <string name="couponInfoController_label1_title">面额详情</string>
+    <string name="couponInfoController_lblFitProduct_title">适用商品</string>
+    <string name="couponInfoController_lblUsingDesc_title">使用说明</string>
+    <string name="couponInfoController_label2_title">2、用户在享受立减优惠后，如订单产生退款，优惠券不退回。</string>
+    <string name="couponInfoController_label3_title">3、在获取和使用优惠券的过程中，如果出现违规行为（如作弊领取，恶意套现等虚假交易），土猫网将收回优惠券（包括已使用的券及未使用的券），必要时追究法律责任。</string>
+
+
+    <string name="couponExchangeByCodeVC_navItem_title">优惠券兑换</string>
+    <string name="couponExchangeByCodeVC_toastNotification_msg1">请输入兑换码</string>
+    <string name="couponExchangeByCodeVC_toastNotification_msg2">兑换成功</string>
+    <string name="couponExchangeByCodeVC_label_title">领券购物更实惠</string>
+    <string name="couponExchangeByCodeVC_btn_title">立即兑换</string>
+    
+    
+    <string name="couponDetailVC_navItem_title">优惠券兑换</string>
+    <string name="couponDetailVC_toastNotification_msg1">请先登录，然后再领取优惠券</string>
+    <string name="couponDetailVC_toastNotification_msg2">兑换成功</string>
+    <string name="couponDetailVC_lbMinPrice_title">满%@元可用</string>
+    <string name="couponDetailVC_btn_title">立即领取</string>
+    
+    
+    <string name="prodHotKeySearchVC_searchText_plaTitle">输入关键词</string>
+    <string name="prodHotKeySearchVC_lblSearch_title">搜索</string>
+    <string name="prodHotKeySearchVC_toastNotification_msg1">禁止搜索空字符串</string>
+    <string name="prodHotKeySearchVC_lblHot_title">热门搜索</string>
+    <string name="prodHotKeySearchVC_lblChange_title">换一批</string>
+    <string name="prodHotKeySearchVC_lblHistory_title">最近搜索</string>
+    <string name="prodHotKeySearchVC_btnDelete_title">清空搜索历史</string>
+    
+    
+    <string name="prodList_searchBtn_plaTitle">请输入产品名称</string>
+    <string name="prodList_toastNotification_msg1">已加入购物车</string>
+    <string name="prodList_noResultView_desc">没有搜索结果</string>
+    <string name="prodList_range_string">券</string>
+    <string name="prodList_promrange_string">折</string>
+    <string name="prodList_cellOne_brand">品牌:%@</string>
+    <string name="prodList_cellOne_makerModel">型号:%@</string>
+    <string name="prodList_cellOne_makerModel2">型号:暂无</string>
+    <string name="prodList_cellOne_sn">商品编号:%@</string>
+    <string name="prodList_cellTwo_brand">品牌:%@</string>
+    <string name="prodList_cellTwo_makerModel">型号:%@</string>
+    <string name="prodList_cellTwo_makerModel2">型号:暂无</string>
+    <string name="prodList_cellTwo_sn">商品编号:%@</string>
+    
+    
+    <string name="promotionList_navItem_title">土猫促销</string>
+    <string name="promotionList_label_title">全部活动</string>
+    <string name="promotionList_cell_desc">活动说明:</string>
+    
+    
+    <string name="opinionVC_navItem_title">发表评价</string>
+    <string name="opinionVC_review_content">五星好评</string>
+    <string name="opinionVC_toastNotification_msg1">成功评价</string>
+    <string name="opinionVC_btn_title">发表评价</string>
+    
+    <string name="opinionCell_content_plaTitle">您可以根据您的商品质量，使用情况，材质，服务等情况作出评价，满意请给好评！</string>
+    
+    <string name="msgList_navItem_title">消息中心</string>
+    <string name="msgList_noResultView_desc">消息功能正在紧急上线中</string>
+    
+    <string name="baseController_indexMenu_menuItem">首页</string>
+    <string name="baseController_msgMenu_menuItem">消息</string>
+    
+    
+    <string name="commonUtils_noResultView1_text">没有结果</string>
+    <string name="commonUtils_noResultView2_text">没有结果</string>
+    <string name="commonUtils_orderNoResultView_text">您还没有相关的订单</string>
+    <string name="commonUtils_orderNoResultView_linkString">您可以去 首页 逛逛...</string>
+    <string name="commonUtils_orderNoResultView_range">首页</string>
+    <string name="commonUtils_collectionNoResultView_linkString">您可以去 首页 逛逛...</string>
+    <string name="commonUtils_collectionNoResultView_range">首页</string>
+    <string name="commonUtils_alertUnExpectedError_debug">获取数据失败</string>
+    <string name="commonUtils_alertUnExpectedError_release">网络错误</string>
+    
+
+    <string name="baseService_showHUD_title">正在加载</string>
+    <string name="loginService_showHUD_title">正在登录</string>
+    <string name="orderService_showHUD_title">正在加载</string>
+    <string name="productCategoryService_showHUD_getRoots">正在加载</string>
+    <string name="productCategoryService_showHUD_getRoots_v2">正在加载</string>
+    <string name="productCategoryService_showHUD_getChildren">正在加载</string>
+    <string name="productService_showHUD_getProductList">正在加载</string>
+    <string name="productService_showHUD_getProductInfo">正在加载</string>
+    <string name="cartService_showHUD_getCartList">正在加载</string>
+    <string name="cartService_showHUD_addCartItem">正在加载</string>
+    <string name="cartService_showHUD_addCartItems">正在加载</string>
+    <string name="cartService_showHUD_updateCartItem">正在加载</string>
+    <string name="cartService_showHUD_updateMultiplyCartItem">正在加载</string>
+    <string name="cartService_showHUD_deleteCartItem">正在加载</string>
+
+
+    <string name="appDelegate_tabBarItem1_title">首页</string>
+    <string name="appDelegate_tabBarItem2_title">分类</string>
+    <string name="appDelegate_tabBarItem3_title">购物车</string>
+    <string name="appDelegate_tabBarItem4_title">我的</string>
+
+
+
+
+</resources>

@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IndexViewController">
+            <connections>
+                <outlet property="allclassifyBtn" destination="g4A-th-WEC" id="ftH-z0-AxG"/>
+                <outlet property="allclassifyView" destination="GOu-VZ-tf9" id="Hg7-et-phM"/>
+                <outlet property="backScrollView" destination="Mmy-D0-Kki" id="fBW-b6-i0n"/>
+                <outlet property="btnMenu1" destination="CYd-L9-QWj" id="WTb-SK-tIK"/>
+                <outlet property="btnMenu2" destination="4mi-dg-rp1" id="F7l-Z3-7C8"/>
+                <outlet property="btnMenu3" destination="die-8i-Ken" id="6fQ-i3-70H"/>
+                <outlet property="btnMenu4" destination="zUV-E5-02G" id="2Tk-Lc-qpI"/>
+                <outlet property="faststockBtn" destination="dNd-G8-1WL" id="pAm-iV-Mct"/>
+                <outlet property="faststockView" destination="Oqr-ev-j0z" id="xXB-QW-Vxy"/>
+                <outlet property="hotActivityView" destination="8Y3-n8-jKp" id="MZX-Wc-FbT"/>
+                <outlet property="hottelephoneBtn" destination="vJf-fa-bV0" id="7d5-zh-EZV"/>
+                <outlet property="hottelephoneView" destination="EWg-7D-1ZE" id="vox-we-iPX"/>
+                <outlet property="imageScroll" destination="Aq9-y9-PcP" id="srD-XO-jgw"/>
+                <outlet property="imgMenu1" destination="RGM-JQ-fno" id="rk3-BE-qtb"/>
+                <outlet property="imgMenu2" destination="lS1-PP-WB4" id="SaU-SX-sST"/>
+                <outlet property="imgMenu3" destination="LDq-Ki-NIU" id="hRh-x0-g1t"/>
+                <outlet property="imgMenu4" destination="Bli-hO-AIh" id="Bw9-gr-c1Z"/>
+                <outlet property="labMenu1" destination="SoL-DS-Jle" id="bBT-O0-dSK"/>
+                <outlet property="labMenu2" destination="iBY-vN-ily" id="ivm-5E-tov"/>
+                <outlet property="labMenu3" destination="OBn-4V-wRV" id="c63-Zo-q7L"/>
+                <outlet property="labMenu4" destination="4qg-6N-Zhe" id="RX5-Wp-Znr"/>
+                <outlet property="menu" destination="Gee-BM-kaS" id="QiK-YH-XJT"/>
+                <outlet property="moreView" destination="DE8-SJ-ObI" id="9fU-XT-qzx"/>
+                <outlet property="onlineserviceBtn" destination="duQ-vn-sNm" id="4IY-ZC-cPV"/>
+                <outlet property="onlineserviceView" destination="pCD-NC-0zN" id="U7V-wP-v3H"/>
+                <outlet property="tmAimg1" destination="HCU-Ge-kc8" id="rPd-Fe-Fy9"/>
+                <outlet property="tmAimg2" destination="bNC-dH-Ysp" id="gOz-lf-unT"/>
+                <outlet property="tmAmoreLabel" destination="3bL-mZ-gH1" id="MD0-JP-kCz"/>
+                <outlet property="tmAtitleLabel" destination="Nv5-Oh-oZ4" id="qRv-Wi-mb9"/>
+                <outlet property="tmHimg1" destination="jgL-B1-DPI" id="chv-zn-BNh"/>
+                <outlet property="tmHimg2" destination="soi-zE-tnq" id="FrS-Um-RIT"/>
+                <outlet property="tmHmoreLabel" destination="EVh-44-b9x" id="Ta0-az-nlJ"/>
+                <outlet property="tmHtitleLabel" destination="9Mc-bM-Cdc" id="khg-v4-tVm"/>
+                <outlet property="tmLimg1" destination="3SX-IJ-P4U" id="uEU-Bq-nAp"/>
+                <outlet property="tmLtitleLabel" destination="Z6E-uP-tDO" id="6fT-LN-cdS"/>
+                <outlet property="tmPimg1" destination="A5V-aK-4qd" id="hsb-WH-dnN"/>
+                <outlet property="tmPtitleLabel" destination="KIo-rw-NnY" id="0He-z3-LIu"/>
+                <outlet property="tmRimg1" destination="Ue1-S2-hh0" id="Shj-bM-xpT"/>
+                <outlet property="tmRimg2" destination="bbv-EY-pYr" id="2Dv-kI-Djn"/>
+                <outlet property="tmRmoreLabel" destination="aMU-w0-ZBk" id="0hm-fA-ifw"/>
+                <outlet property="tmRtitleLabel" destination="L9i-FT-WU7" id="2qK-8d-jF5"/>
+                <outlet property="tmTimg1" destination="5DE-jz-on2" id="RCp-Wv-tEj"/>
+                <outlet property="tmTimg2" destination="HoP-tD-Zsc" id="kHG-nU-5wf"/>
+                <outlet property="tmTmoreLabel" destination="0ff-Xk-0dF" id="238-79-5d2"/>
+                <outlet property="tmTtitleLabel" destination="o4e-UN-32S" id="dAH-Kk-cqF"/>
+                <outlet property="todaybrandBtn" destination="KEk-Oq-EZP" id="lPg-DL-NFi"/>
+                <outlet property="todaybrandView" destination="aqq-Or-WXY" id="JMS-bg-cnQ"/>
+                <outlet property="toolmallRecommendBtn" destination="hyh-OH-pOV" id="ers-99-hSG"/>
+                <outlet property="toolmallRecommendView" destination="PIv-kH-DT4" id="D22-ml-XQD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view1" destination="QlC-Ow-8a2" id="GIP-CB-hjh"/>
+                <outlet property="view2" destination="gbo-9i-QhK" id="TmW-fP-nc5"/>
+                <outlet property="view3" destination="Dtd-gF-it3" id="pxx-gE-OWp"/>
+                <outlet property="view4" destination="v6O-iX-10J" id="Ubw-yt-5M4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Mmy-D0-Kki">
+                    <rect key="frame" x="0.0" y="0.0" width="430" height="766"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" id="Aq9-y9-PcP">
+                            <rect key="frame" x="0.0" y="0.0" width="1235" height="150"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.95544275479999996" green="0.95544275479999996" blue="0.95544275479999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </scrollView>
+                        <view contentMode="scaleToFill" id="Oqr-ev-j0z" userLabel="faststock">
+                            <rect key="frame" x="0.0" y="150" width="1985" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="五金店专用通道" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BqV-yP-P9T">
+                                    <rect key="frame" x="13" y="0.0" width="130" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="快速进货" id="uE6-oS-IBL" customClass="EGOImageView">
+                                    <rect key="frame" x="265" y="5" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快速进货" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6te-p4-cNV">
+                                    <rect key="frame" x="1910" y="0.0" width="60" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dNd-G8-1WL">
+                                    <rect key="frame" x="1610" y="0.0" width="375" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <action selector="clickFaststockBtnAction:" destination="-1" eventType="touchUpInside" id="Qtq-Nm-3aS"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="Gee-BM-kaS" userLabel="menuView">
+                            <rect key="frame" x="0.0" y="190" width="1290" height="65"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="QlC-Ow-8a2" userLabel="View1">
+                                    <rect key="frame" x="11" y="0.0" width="80" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="联系客服" id="RGM-JQ-fno" customClass="EGOImageView">
+                                            <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系客服" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SoL-DS-Jle">
+                                            <rect key="frame" x="0.0" y="40" width="80" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" tag="5000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CYd-L9-QWj" userLabel="Button1">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <connections>
+                                                <action selector="clickToProductListPage:" destination="-1" eventType="touchUpInside" id="6CN-En-rU8"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="gbo-9i-QhK" userLabel="View2">
+                                    <rect key="frame" x="102" y="0.0" width="80" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="品牌推荐" id="lS1-PP-WB4" customClass="EGOImageView">
+                                            <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌推荐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iBY-vN-ily">
+                                            <rect key="frame" x="0.0" y="40" width="80" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" tag="5001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4mi-dg-rp1" userLabel="Button2">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <connections>
+                                                <action selector="clickToProductListPage:" destination="-1" eventType="touchUpInside" id="QLo-TH-7T6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="Dtd-gF-it3" userLabel="view3">
+                                    <rect key="frame" x="1053" y="0.0" width="80" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="工具定制" id="LDq-Ki-NIU" customClass="EGOImageView">
+                                            <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工具定制" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OBn-4V-wRV">
+                                            <rect key="frame" x="0.0" y="40" width="80" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" tag="5002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="die-8i-Ken" userLabel="Button3">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <connections>
+                                                <action selector="clickToProductListPage:" destination="-1" eventType="touchUpInside" id="nLE-M0-mcX"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="v6O-iX-10J" userLabel="View4">
+                                    <rect key="frame" x="1144" y="0.0" width="80" height="65"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="我的收藏" id="Bli-hO-AIh" customClass="EGOImageView">
+                                            <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="我的收藏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4qg-6N-Zhe">
+                                            <rect key="frame" x="0.0" y="40" width="80" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" tag="5003" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zUV-E5-02G" userLabel="Button4">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <connections>
+                                                <action selector="clickToProductListPage:" destination="-1" eventType="touchUpInside" id="SaI-I6-oSl"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.65958521613563414" blue="0.20154471509291472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" misplaced="YES" id="PIv-kH-DT4" userLabel="toolmallrecommend">
+                            <rect key="frame" x="0.0" y="260" width="1235" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="猫工推荐" id="Ue1-S2-hh0" customClass="EGOImageView">
+                                    <rect key="frame" x="10" y="6" width="28" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="猫工推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L9i-FT-WU7">
+                                    <rect key="frame" x="40" y="0.0" width="536" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="更多" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aMU-w0-ZBk">
+                                    <rect key="frame" x="864" y="0.0" width="346" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="更多" id="bbv-EY-pYr">
+                                    <rect key="frame" x="1209" y="12" width="16" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hyh-OH-pOV">
+                                    <rect key="frame" x="1100" y="0.0" width="135" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                    <connections>
+                                        <action selector="clickToolMallRecommendDetailView:" destination="-1" eventType="touchUpInside" id="Wel-lS-Y0I"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" misplaced="YES" id="8Y3-n8-jKp" userLabel="hotactivity">
+                            <rect key="frame" x="0.0" y="310" width="1235" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="热门活动" id="jgL-B1-DPI" customClass="EGOImageView">
+                                    <rect key="frame" x="10" y="6" width="28" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="热门活动" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Mc-bM-Cdc">
+                                    <rect key="frame" x="40" y="0.0" width="536" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EVh-44-b9x">
+                                    <rect key="frame" x="864" y="0.0" width="346" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="更多" id="soi-zE-tnq">
+                                    <rect key="frame" x="1209" y="12" width="16" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vVh-i2-JBt">
+                                    <rect key="frame" x="1100" y="0.0" width="135" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" misplaced="YES" id="aqq-Or-WXY" userLabel="todaybrand">
+                            <rect key="frame" x="0.0" y="360" width="1235" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="今日大牌" id="5DE-jz-on2" customClass="EGOImageView">
+                                    <rect key="frame" x="10" y="6" width="28" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="今日大牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o4e-UN-32S">
+                                    <rect key="frame" x="40" y="0.0" width="536" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="更多" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0ff-Xk-0dF">
+                                    <rect key="frame" x="864" y="0.0" width="346" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="更多" id="HoP-tD-Zsc">
+                                    <rect key="frame" x="1208" y="12" width="17" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KEk-Oq-EZP">
+                                    <rect key="frame" x="1100" y="0.0" width="135" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                    <connections>
+                                        <action selector="clickTBMoreBtnAction:" destination="-1" eventType="touchUpInside" id="zTX-w0-9EK"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="GOu-VZ-tf9" userLabel="allclassify">
+                            <rect key="frame" x="0.0" y="410" width="1235" height="40"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="全部分类" id="HCU-Ge-kc8" customClass="EGOImageView">
+                                    <rect key="frame" x="10" y="6" width="28" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="全部分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nv5-Oh-oZ4">
+                                    <rect key="frame" x="40" y="0.0" width="536" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="详情" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3bL-mZ-gH1">
+                                    <rect key="frame" x="864" y="0.0" width="346" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="更多" id="bNC-dH-Ysp">
+                                    <rect key="frame" x="1209" y="12" width="16" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g4A-th-WEC">
+                                    <rect key="frame" x="1100" y="0.0" width="135" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                    <connections>
+                                        <action selector="clickACDetailBtnAction:" destination="-1" eventType="touchUpInside" id="UNp-XY-I3K"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="DE8-SJ-ObI" userLabel="MoreView">
+                            <rect key="frame" x="0.0" y="460" width="1235" height="100"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" id="pCD-NC-0zN" userLabel="onlineservice">
+                                    <rect key="frame" x="0.0" y="10" width="1235" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="联系客服2" id="3SX-IJ-P4U" customClass="EGOImageView">
+                                            <rect key="frame" x="80" y="9" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击联系:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z6E-uP-tDO">
+                                            <rect key="frame" x="110" y="0.0" width="70" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="duQ-vn-sNm">
+                                            <rect key="frame" x="183" y="0.0" width="135" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <state key="normal" title="在线客服">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onlineServiceBtnAction:" destination="-1" eventType="touchUpInside" id="vqL-wx-lZ8"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <view contentMode="scaleToFill" id="EWg-7D-1ZE" userLabel="hottelephone">
+                                    <rect key="frame" x="0.0" y="50" width="1235" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="热线电话" id="A5V-aK-4qd" customClass="EGOImageView">
+                                            <rect key="frame" x="80" y="9" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热线电话:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KIo-rw-NnY">
+                                            <rect key="frame" x="110" y="0.0" width="70" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vJf-fa-bV0">
+                                            <rect key="frame" x="183" y="0.0" width="175" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <state key="normal">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="hotTelephoneBtnAction:" destination="-1" eventType="touchUpInside" id="gsL-Jr-8sG"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                            </subviews>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="whD-9t-Q7b"/>
+                    </connections>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <point key="canvasLocation" x="26" y="152"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="今日大牌" width="50" height="50"/>
+        <image name="全部分类" width="50" height="50"/>
+        <image name="品牌推荐" width="87" height="88"/>
+        <image name="工具定制" width="87" height="88"/>
+        <image name="快速进货" width="56" height="54"/>
+        <image name="我的收藏" width="87" height="88"/>
+        <image name="更多" width="32" height="32"/>
+        <image name="热线电话" width="48" height="48"/>
+        <image name="热门活动" width="50" height="50"/>
+        <image name="猫工推荐" width="50" height="50"/>
+        <image name="联系客服" width="87" height="88"/>
+        <image name="联系客服2" width="48" height="48"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina5_5.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

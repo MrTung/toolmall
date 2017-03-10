@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MsgDialogController">
+            <connections>
+                <outlet property="sendMsgContent" destination="8xC-Cr-Ckj" id="E9m-ds-27w"/>
+                <outlet property="tableList" destination="rA2-D5-hgp" id="cwa-Ld-IVQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rA2-D5-hgp" customClass="PullTableView">
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dxh-2Y-ejn"/>
+                        <outlet property="delegate" destination="-1" id="fVS-PZ-UOG"/>
+                        <outlet property="pullDelegate" destination="-1" id="ShY-Ih-M9j"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6m-jB-iG2">
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8xC-Cr-Ckj">
+                            <frame key="frameInset" minX="8" minY="8" width="245" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qa-ub-7dO">
+                            <frame key="frameInset" minY="7" width="46" height="30" maxX="13"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="发送">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="clickSend:" destination="-1" eventType="touchUpInside" id="ij8-JO-xah"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.69411764710000001" green="0.015686274510000001" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="J6m-jB-iG2" secondAttribute="trailing" id="1qb-tE-Vyb"/>
+                <constraint firstItem="J6m-jB-iG2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BBX-Rn-fqC"/>
+                <constraint firstAttribute="trailing" secondItem="rA2-D5-hgp" secondAttribute="trailing" id="BRT-ns-mWn"/>
+                <constraint firstAttribute="bottom" secondItem="J6m-jB-iG2" secondAttribute="bottom" id="OM6-LW-fyo"/>
+                <constraint firstItem="rA2-D5-hgp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PJW-Ep-ju2"/>
+                <constraint firstItem="rA2-D5-hgp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T4y-9K-vYU"/>
+                <constraint firstItem="J6m-jB-iG2" firstAttribute="top" secondItem="rA2-D5-hgp" secondAttribute="bottom" constant="-1" id="Tfn-Z0-iFW"/>
+                <constraint firstAttribute="bottom" secondItem="rA2-D5-hgp" secondAttribute="bottom" constant="43" id="fnC-ZJ-dbq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="329" y="318"/>
+        </view>
+    </objects>
+</document>
