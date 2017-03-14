@@ -10,7 +10,7 @@
 
 @interface IndexService : BaseService
 
-- (void)getInfo;
+- (void)getInfoWithBlock:(void (^)(BaseModel*responseObj))success;
 
 - (void)getXMLString;
 

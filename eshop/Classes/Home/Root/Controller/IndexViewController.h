@@ -37,11 +37,8 @@
     BOOL reloading;
     
     IndexResponse * indexResponse;
-    IndexService * indexService;
      Pagination * pagination;
     
-    CartService *cartService;
-    VersionService *versionService;
     AppUpdate *appUpdate;
     
 }

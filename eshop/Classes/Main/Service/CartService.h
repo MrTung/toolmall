@@ -20,7 +20,6 @@
 - (void) addCartItem:(int) productId quantity:(int)quantity;
 - (void) updateMultiplyCartItem:(NSMutableArray*) cartItemIds selected:(Boolean)selected;
 - (void) deleteCartItem:(NSMutableArray*) cartItemIds;
-
 //多条商品加入购物车
 - (void)addCartItems:(NSArray *)productIds quantities:(NSArray *)quantities;
 /** 获取首单免邮信息 */

@@ -11,7 +11,6 @@
 #import "ShopLoginViewController.h"
 #import "UserInfoResponse.h"
 #import "UserInfoService.h"
-#import "MyDeposit.h"
 #import "AddressList.h"
 #import "OrderNum.h"
 //#import "SettingController.h"

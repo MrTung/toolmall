@@ -59,7 +59,9 @@
 }
 //发起请求
 - (void)getPostRequest{
-    [searchService getProductWithFetchSearchHistory:_fetchSearchHistory andSearchCookieUUID:UUID andSession:session andPagination:pagination];
+    [searchService getProductWithFetchSearchHistory:_fetchSearchHistory andPagination:pagination success:^(BaseModel *responseObj) {
+        
+    }];
 }
 
 //热词换一批请求
@@ -76,7 +78,9 @@
 //删除历史记录请求
 - (void)deleteSearchHistories:(UIButton *)button{
 //    NSLog(@"删除历史搜索");
-    [searchService deleteHistoryKeyWordWithSearchCookieUUID:UUID andSession:session];
+    [searchService deleteHistoryKeyWordWithSuccess:^(BaseModel *responseObj) {
+        
+    }];
 }
 
 - (void)loadResponse:(NSString *) url response:(BaseModel *)response{

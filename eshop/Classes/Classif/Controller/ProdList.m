@@ -27,8 +27,6 @@
     NSMutableDictionary *requestAttributes;
     Boolean attrOptionDisplayed;
     
-    NSString * UUID;
-    SESSION * session;
     Boolean isBuyAtOnce;
     __weak __typeof(PYSearchViewController*)weakVC;
 
@@ -170,29 +168,24 @@
     }
     [self getSearchRequest];
     if (isSearch){
-        [searchService getProductSearchResult:searchKeyWord orderType:orderType pagination:pagination];
+        [searchService getProductSearchResult:searchKeyWord orderType:orderType pagination:pagination success:^(BaseModel *responseObj) {
+            
+        }];
     } else {
         [productService getProductList:_brandId activityId:self.activityId productCategoryId:productCategoryId promotionId:_promotionId tagId:_tagId attributes:requestAttributes orderType:orderType pagination:pagination couponId:_couponId];
     }
 }
 - (void)loadResponse:(NSString *) url response:(BaseModel *)response{
-    
     if ([url isEqual:api_product_list] || [url isEqualToString:api_product_search_list]){
-        
         // 二次搜索滚动至顶部
         if (![oldSearchKeyWord isEqualToString:searchKeyWord] && isSearch) {
             
-            //        NSLog(@"\n\n  oldSearchKeyWord:%@ - change - searchKeyWord:%@  \n\n", oldSearchKeyWord, searchKeyWord);
             [tableProducts setContentOffset:CGPointMake(0,0) animated:NO];
         }
         oldSearchKeyWord = searchKeyWord;
-        
         ProductListResponse * respobj = (ProductListResponse *)response;
         [products addObjectsFromArray:respobj.data];
         if (respobj.paginated.more > 0){
-//            [self.tableProducts setHasLoadingMore:YES];
-            
-//            [self loadMoreDataToTable];
             _hasMoreData = YES;
         } else {
             [self.tableProducts setHasLoadingMore:NO];
@@ -236,24 +229,6 @@
         // @"已加入购物车"
         NSString *prodList_toastNotification_msg1 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"prodList_toastNotification_msg1"];
         [CommonUtils ToastNotification:prodList_toastNotification_msg1 andView:self.view andLoading:NO andIsBottom:YES];
-    }
-    else if ([url isEqualToString:api_hotsearchkeylist]) {
-        
-        _hotArray = [[NSMutableArray alloc] init];
-        [_hotArray removeAllObjects];
-        
-        HotSearchKeyListResponse * resobj = (HotSearchKeyListResponse *)response;
-        [_hotArray addObjectsFromArray:resobj.data];
-        
-        if (pagination.page > 1) {
-            NSMutableArray<NSString *> *hotSeaches = [[NSMutableArray alloc] init];
-            for (NSString *str in _hotArray) {
-                [hotSeaches addObject:str];
-            }
-            weakVC.hotSearches = hotSeaches;
-            [weakVC.tableView reloadData];
-        }
-        
     }
 }
 
@@ -709,7 +684,6 @@
     if ([displayType isEqualToString:@"list"]){
         
         AppProduct *product = [products objectAtIndex:indexPath.row];
-//        ProdInfo *prodInfo = [[ProdInfo alloc] init];
         ProductInfoViewController * prodInfo = [[ProductInfoViewController alloc]init];
         prodInfo.productId = product.id;
         
@@ -757,10 +731,23 @@
 
 //发起请求
 - (void)getSearchRequest{
-    session = [SESSION getSession];
-    UUID = [CommonUtils uuid];
     searchService = [[SearchService alloc] initWithDelegate:self parentView:self.view];
-    [searchService getProductWithFetchSearchHistory:true andSearchCookieUUID:UUID andSession:session andPagination:pagination];
+    [searchService getProductWithFetchSearchHistory:true andPagination:pagination success:^(BaseModel *responseObj) {
+        _hotArray = [[NSMutableArray alloc] init];
+        [_hotArray removeAllObjects];
+        
+        HotSearchKeyListResponse * resobj = (HotSearchKeyListResponse *)responseObj;
+        [_hotArray addObjectsFromArray:resobj.data];
+        
+        if (pagination.page > 1) {
+            NSMutableArray<NSString *> *hotSeaches = [[NSMutableArray alloc] init];
+            for (NSString *str in _hotArray) {
+                [hotSeaches addObject:str];
+            }
+            weakVC.hotSearches = hotSeaches;
+            [weakVC.tableView reloadData];
+        }
+    }];
 }
 
 - (void)pushToSearchPage:(UIButton *)button{

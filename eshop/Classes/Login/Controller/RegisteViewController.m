@@ -283,37 +283,6 @@
         }
 
     }
-    
-    else if([url isEqual:api_qqlogin] || [url isEqual:api_wxlogin]){
-        
-        respobj = (UserSignInResponse *)response;
-
-        if (respobj.status.succeed == 1) {
-            [[Config Instance] saveUserInfo:@"uid" withvalue:[[NSString alloc] initWithFormat:@"%d", respobj.data.user.id]];
-            [[Config Instance] saveUserInfo:@"sid" withvalue:respobj.data.session.sid];
-            [[Config Instance] saveUserInfo:@"uname" withvalue:respobj.data.user.name];
-            [[Config Instance] saveUserInfo:@"key" withvalue:respobj.data.session.key];
-            [[Config Instance] saveUserInfo:@"email" withvalue:respobj.data.user.email];
-            [[Config Instance] saveUserInfo:@"memberrank" withvalue:respobj.data.user.rank_name];
-            [[Config Instance] saveCartId:respobj.data.session.cartId];
-            [[Config Instance] saveCartToken:respobj.data.session.cartToken];
-            
-            //保存用户信息
-            [ArchiverCacheHelper saveObjectToLoacl:[[UserCacheModel alloc] initWithBaseModel:respobj] key:User_Archiver_Key filePath:User_Archiver_Path];
-            
-            //设置全局缓存信息
-            [SharedAppUtil defaultCommonUtil].userCache = [ArchiverCacheHelper getLocaldataBykey:User_Archiver_Key filePath:User_Archiver_Path];
-
-
-            [SESSION setSession:nil];
-            if (!respobj.data.user.mobile) {
-                FirmMobileViewController * firm = [[FirmMobileViewController alloc]initWithNibName:@"FirmMobileViewController" bundle:nil];
-                [self.navigationController pushViewController:firm animated:YES];
-            }
-            else
-                [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    }
 }
 
 
@@ -379,7 +348,9 @@
         } else {
             UMSocialUserInfoResponse *resp = result;
             
-            [loginService loginWithWX:resp.openid nickName:resp.name cartId:[SESSION getSession].cartId accessToken:resp.accessToken];
+            [loginService loginWithWX:resp.openid nickName:resp.name cartId:[SESSION getSession].cartId accessToken:resp.accessToken success:^(BaseModel *responseObj) {
+                [self platLoginResult:responseObj];
+            }];
         }
     }];
 }
@@ -392,19 +363,52 @@
         } else {
             UMSocialUserInfoResponse *resp = result;
             
-            [loginService loginWithWX:resp.openid nickName:resp.name cartId:[SESSION getSession].cartId accessToken:resp.accessToken];
-            // 第三方平台SDK源数据
-//            NSLog(@"Wechat originalResponse: %@", resp.originalResponse);
+            [loginService loginWithWX:resp.openid nickName:resp.name cartId:[SESSION getSession].cartId accessToken:resp.accessToken success:^(BaseModel *responseObj) {
+                [self platLoginResult:responseObj];
+            }];
         }
     }];
 }
 
+
+/**
+ 第三方登录 微信或者qq
+
+ @param responseObj <#responseObj description#>
+ */
+-(void)platLoginResult:(BaseModel *)responseObj{
+    
+    respobj = (UserSignInResponse *)responseObj;
+    if (respobj.status.succeed == 1) {
+        [[Config Instance] saveUserInfo:@"uid" withvalue:[[NSString alloc] initWithFormat:@"%d", respobj.data.user.id]];
+        [[Config Instance] saveUserInfo:@"sid" withvalue:respobj.data.session.sid];
+        [[Config Instance] saveUserInfo:@"uname" withvalue:respobj.data.user.name];
+        [[Config Instance] saveUserInfo:@"key" withvalue:respobj.data.session.key];
+        [[Config Instance] saveUserInfo:@"email" withvalue:respobj.data.user.email];
+        [[Config Instance] saveUserInfo:@"memberrank" withvalue:respobj.data.user.rank_name];
+        [[Config Instance] saveCartId:respobj.data.session.cartId];
+        [[Config Instance] saveCartToken:respobj.data.session.cartToken];
+        
+        //保存用户信息
+        [ArchiverCacheHelper saveObjectToLoacl:[[UserCacheModel alloc] initWithBaseModel:respobj] key:User_Archiver_Key filePath:User_Archiver_Path];
+        
+        //设置全局缓存信息
+        [SharedAppUtil defaultCommonUtil].userCache = [ArchiverCacheHelper getLocaldataBykey:User_Archiver_Key filePath:User_Archiver_Path];
+        
+        
+        [SESSION setSession:nil];
+        if (!respobj.data.user.mobile) {
+            FirmMobileViewController * firm = [[FirmMobileViewController alloc]initWithNibName:@"FirmMobileViewController" bundle:nil];
+            [self.navigationController pushViewController:firm animated:YES];
+        }
+        else
+            [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+
 //布局页面
 - (void)createUI{
-    
-//    _phoneTextField.keyboardType = UIKeyboardTypeDefault;
-//    
-//    _messageTextField.keyboardType = UIKeyboardTypeNamePhonePad;
     
     _passwordTextField.secureTextEntry = YES;
     

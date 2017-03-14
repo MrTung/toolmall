@@ -46,7 +46,9 @@
     session = [SESSION getSession];
     UUID = [CommonUtils uuid];
     searchService = [[SearchService alloc] initWithDelegate:self parentView:self.view];
-    [searchService getProductWithFetchSearchHistory:true andSearchCookieUUID:UUID andSession:session andPagination:pagination];
+    [searchService getProductWithFetchSearchHistory:true andPagination:pagination success:^(BaseModel *responseObj) {
+        
+    }];
 }
 
 -(void)initView{

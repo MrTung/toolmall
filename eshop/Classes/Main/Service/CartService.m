@@ -18,15 +18,8 @@ static CartResponse *cartResponse;
 + (void)setCartResponse:(CartResponse*)cartResp{
     cartResponse =cartResp;
 }
+
 - (void) getCartList:(Boolean)showLoading{
-//    if (cartResponse){
-//        
-//        if (super.delegate) {
-//            
-//            [super.delegate loadResponse:api_cart_list response:cartResponse];
-//        }
-//        return;
-//    }
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:[[SESSION getSession] toJsonString] forKeyedSubscript:@"json"];
     [CommonUtils fillStrToDictionary:params key:iOSAppVersion value:[CommonUtils returnVersion]];

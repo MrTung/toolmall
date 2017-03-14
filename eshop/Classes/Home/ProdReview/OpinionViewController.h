@@ -9,15 +9,13 @@
 #import "UIBaseController.h"
 #import "AppOrderInfo.h"
 #import "ReviewService.h"
-//#import "SubmitReviewCell.h"
-//#import "SubmitReviewFooter.h"
 #import "AppOrderItem.h"
 #import "OrderList.h"
 #import "PullTableView.h"
 #import "OpinionCell.h"
 @interface OpinionViewController : UIBaseController 
 {
-    ReviewService *reviewService;
+    
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableList;

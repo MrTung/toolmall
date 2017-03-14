@@ -17,7 +17,6 @@
 
 @interface ShopLoginViewController:UIBaseController<ServiceResponselDelegate,UITextFieldDelegate>
 {
-    LoginService *loginService;
 //    NSString *verifyCode;
 }
 

@@ -15,7 +15,6 @@
 
 @interface PromotionList : UIViewController<UITableViewDataSource, UITableViewDelegate>{
     NSMutableArray *promotions;
-    PromotionService *promotionService;
     Pagination *pagination;
 }
 @property (nonatomic) IBOutlet PullTableView *tableList;

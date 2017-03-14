@@ -23,10 +23,7 @@
 
 @interface FavoriteListController : UIBaseController<UITableViewDelegate,UITableViewDataSource,MBProgressHUDDelegate, UIAlertViewDelegate,MsgHandler, PullTableViewDelegate>{
     NSMutableArray * favorites;
-    FavoriteService *favoriteService;
-    CartService * cartService;
-    ProductService * productService;
-    Pagination * pagination;
+  
     NSString *mode;
     NSInteger curDelRow;
 
@@ -42,6 +39,6 @@
 @property (nonatomic, strong) UIButton * btnEdit;
 @property (nonatomic, strong) UIBarButtonItem * right;
 @property NSMutableArray * hotProducts; //用来存储足迹中的item;
-@property (nonatomic)  UIScrollView *scrollFoot;
-@property UIView * viewFootprint; //足迹
+@property (nonatomic,strong)  UIScrollView *scrollFoot;
+@property (nonatomic,strong)UIView * viewFootprint; //足迹
 @end

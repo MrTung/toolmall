@@ -21,7 +21,6 @@
 
 #import "GDataXMLNode.h"
 #import "TextModel.h"
-//#import "EGORefreshTableHeaderView.h"
 #import "JSWebView.h"
 
 #import "PYSearch.h"
@@ -32,13 +31,8 @@
 {
     dispatch_source_t _timer;
     NSDateFormatter *dateFormatter;
-    //    NSTimeInterval startTimeInterval;
-    //    NSTimeInterval endTimeInterval;
     
     UILabel * lblShow;
-    //    UIImageView * imageShow;
-    //    UIImageView * advImg1;
-    //    UIImageView * advImg2;
     
     BOOL pageControlUsed;
     NSUInteger kNumberOfPages;
@@ -46,20 +40,13 @@
     ProductService *productService;
     FavoriteService *favoriteService;
     
-    SearchService * searchService;
-    NSString * UUID;
-    SESSION * session;
     Boolean isBuyAtOnce;
     
-    UIImage * placeholderImage;
     float totalHeight; //推荐的高度
     float tHeight;//整个页面的高度
     float offset;//偏移量
     
-    
     __weak __typeof(PYSearchViewController*)weakVC;
-    //    NSString *hotActivityLogo;
-    //    BOOL isFirst;
 }
 @property (nonatomic, retain) UIViewController *lastVC;
 @property (strong, nonatomic) CountdownView *cdView;
@@ -93,34 +80,69 @@
     
     [self refreshData];
     
-    placeholderImage = [UIImage imageNamed:@"index_defImage.png"];
-    
     self.backScrollView.frame = CGRectMake(0, 0, TMScreenW, TMScreenH-64-49);
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.backScrollView.contentSize = CGSizeMake(0, 2000);
     self.backScrollView.backgroundColor = groupTableViewBackgroundColorSelf;
+    
     [self createNav];
+    
     [self createUI];
     
-    cartService = [[CartService alloc] initWithDelegate:self parentView:self.view];
+    CartService *cartService = [[CartService alloc] initWithDelegate:self parentView:self.view];
     [cartService getCartList:NO];
-    versionService = [[VersionService alloc] initWithDelegate:self parentView:self.view];
-    [versionService getUpgradePolicy:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+    
+    [self checkVersion];
     
     if (refreshHeaderView == nil) {
-        
         EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.backScrollView.bounds.size.height, self.backScrollView.frame.size.width, self.backScrollView.bounds.size.height)];
         view.delegate = self;
-        //        [view setBackgroundColor:nil textColor:nil arrowImage:[UIImage new] logoImage:LOGO_IMAGE];
         [self.backScrollView addSubview:view];
         refreshHeaderView = view;
     }
 }
 
+/**
+ 检测版本更新
+ */
+-(void)checkVersion{
+    VersionService *versionService = [[VersionService alloc] initWithDelegate:self parentView:self.view];
+    [versionService getUpgradePolicy:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] success:^(BaseModel *responseObj) {
+        appUpdate = (AppUpdate*)responseObj;
+        if (!appUpdate.isLatestVersion){
+            // 立即更新
+            NSString *index_force_title = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"index_force_title"];
+            // 立即更新
+            NSString *index_remind_cancelTitle = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"index_remind_cancelTitle"];
+            // 以后再说
+            NSString *index_remind_otherTitle = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"index_remind_otherTitle"];
+            if (!index_remind_otherTitle.length || !index_remind_cancelTitle.length || !index_force_title.length) {
+                index_remind_otherTitle = @"以后再说";
+                index_remind_cancelTitle = @"立即更新";
+                index_force_title = @"立即更新";
+            }
+            if ([appUpdate.upgradePolicy isEqualToString:@"force"]){
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:appUpdate.upgradeMsg delegate:self cancelButtonTitle:index_force_title otherButtonTitles:nil, nil];
+                [alertView show];
+            } else if ([appUpdate.upgradePolicy isEqualToString:@"remind"]){
+                NSString *lastRemindDate = [[Config Instance] getUserInfo:@"AppLastRemindDate"];
+                NSDateFormatter *format1=[[NSDateFormatter alloc]init];
+                [format1 setDateFormat:@"yyyy/MM/dd"];
+                NSString *today=[format1 stringFromDate:[NSDate date]];
+                if (![today isEqualToString:lastRemindDate]){
+                    [[Config Instance] saveUserInfo:@"AppLastRemindDate" withvalue:today];
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:appUpdate.upgradeMsg delegate:self cancelButtonTitle:index_remind_cancelTitle otherButtonTitles:index_remind_otherTitle, nil];
+                    [alertView show];
+                }
+            }
+        }
+    }];
+}
+
 - (void)refreshData {
     
-    indexService = [[IndexService alloc] initWithDelegate:self parentView:self.view];
+    IndexService * indexService = [[IndexService alloc] initWithDelegate:self parentView:self.view];
     indexResponse = [[IndexResponse alloc] init];
     _arrayHot = [[NSMutableArray alloc] init];
     _arrayRecommend = [[NSMutableArray alloc] init];
@@ -130,18 +152,11 @@
     _arrayBrand = [[NSMutableArray alloc] init];
     pagination = [[Pagination alloc] init];
     pagination.page = 1;
+    
     [indexService getXMLString];
-    [indexService getInfo];
     
-    [self getSearchRequest];
-    
-    [self setTextValue];
-}
-
-//返回请求数据
-- (void)loadResponse:(NSString *) url response:(BaseModel *)response{
-    if ([url  isEqual: api_index_list]){
-        indexResponse = (IndexResponse *)response;
+    [indexService getInfoWithBlock:^(BaseModel *responseObj) {
+        indexResponse = (IndexResponse *)responseObj;
         
         if (indexResponse.appparasetting.count) {
             
@@ -158,17 +173,6 @@
             }
             [self configureScrollView];
         }
-        
-        // 原menu菜单数据处理
-        //        if (indexResponse.shortcutLinks.count > 0) {
-        //            [_arrayFour removeAllObjects];
-        //            for (int i=0; i<indexResponse.shortcutLinks.count; i++) {
-        //                AppIndexUrl * top = [[AppIndexUrl alloc] init];
-        //                top = indexResponse.shortcutLinks[i];
-        //                [_arrayFour addObject:top];
-        //            }
-        //            [self configInfoOfFourMenu];
-        //        }
         if (indexResponse.iOSShortcutLinks.count > 0) {
             [_arrayFour removeAllObjects];
             for (int i=0; i<indexResponse.iOSShortcutLinks.count; i++) {
@@ -178,7 +182,6 @@
             }
             [self configInfoOfFourMenu];
         }
-        
         
         if (indexResponse.recommands.count >0) {
             [_arrayRecommend removeAllObjects];
@@ -221,8 +224,17 @@
         [self.hottelephoneBtn setTitle:num forState:(UIControlStateNormal)];
         [self doneLoadingTableViewData];
         
-        
-    } else if ([url isEqual:api_cart_list]){
+
+    }];
+    
+    [self getSearchRequest];
+    
+    [self setTextValue];
+}
+
+//返回请求数据
+- (void)loadResponse:(NSString *) url response:(BaseModel *)response{
+    if ([url isEqual:api_cart_list]){
         CartResponse *respobj = (CartResponse*)response;
         if (respobj.status.succeed == 1){
             [AppStatic setCART_ITEM_QUANTITIES:[respobj.data getQuantities]];
@@ -237,65 +249,12 @@
                 [AppStatic CART_ITEM_BAR_ITEM].badgeValue = nil;
             }
         }
-    } else if ([url isEqualToString:api_app_update]){
-        appUpdate = (AppUpdate*)response;
-        if (!appUpdate.isLatestVersion){
-            // 立即更新
-            NSString *index_force_title = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"index_force_title"];
-            // 立即更新
-            NSString *index_remind_cancelTitle = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"index_remind_cancelTitle"];
-            // 以后再说
-            NSString *index_remind_otherTitle = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"index_remind_otherTitle"];
-            if (!index_remind_otherTitle.length || !index_remind_cancelTitle.length || !index_force_title.length) {
-                index_remind_otherTitle = @"以后再说";
-                index_remind_cancelTitle = @"立即更新";
-                index_force_title = @"立即更新";
-            }
-            
-            if ([appUpdate.upgradePolicy isEqualToString:@"force"]){
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:appUpdate.upgradeMsg delegate:self cancelButtonTitle:index_force_title otherButtonTitles:nil, nil];
-                [alertView show];
-            } else if ([appUpdate.upgradePolicy isEqualToString:@"remind"]){
-                NSString *lastRemindDate = [[Config Instance] getUserInfo:@"AppLastRemindDate"];
-                NSDateFormatter *format1=[[NSDateFormatter alloc]init];
-                [format1 setDateFormat:@"yyyy/MM/dd"];
-                NSString *today=[format1 stringFromDate:[NSDate date]];
-                if (![today isEqualToString:lastRemindDate]){
-                    [[Config Instance] saveUserInfo:@"AppLastRemindDate" withvalue:today];
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:appUpdate.upgradeMsg delegate:self cancelButtonTitle:index_remind_cancelTitle otherButtonTitles:index_remind_otherTitle, nil];
-                    [alertView show];
-                }
-            }
-        }
-    }
-    else if ([url isEqualToString:api_hotsearchkeylist]) {
-        
-        _hotArray = [[NSMutableArray alloc] init];
-        [_hotArray removeAllObjects];
-        
-        HotSearchKeyListResponse * resobj = (HotSearchKeyListResponse *)response;
-        [_hotArray addObjectsFromArray:resobj.data];
-        
-        if (pagination.page > 1) {
-            NSMutableArray<NSString *> *hotSeaches = [[NSMutableArray alloc] init];
-            for (NSString *str in _hotArray) {
-                [hotSeaches addObject:str];
-            }
-            weakVC.hotSearches = hotSeaches;
-            [weakVC.tableView reloadData];
-        }
-        
-    }
-    else if ([url isEqualToString:api_productsearchkey_clear_search_history]) {
-        StatusResponse * resobj = (StatusResponse *)response;
-        if (resobj.status.succeed) {
-        }
     }
 }
 
+#pragma mark - 获取XML文本
 - (void)loadResponse:(NSString *)url data:(NSData *)data {
     
-#pragma mark - 获取XML文本
     if ([url isEqualToString:api_xmlString]) {
         
         [self getXMLText:data];
@@ -392,20 +351,11 @@
         [item.recommendBtn addTarget:self action:@selector(clickToolMallRecommendView:) forControlEvents:UIControlEventTouchUpInside];
     }
     _scrollFoot.contentSize = CGSizeMake((_arrayRecommend.count-1)*itemWidth, 0);
-    
 }
-
-
-//- (void)clickToDetailInfomation:(UIButton *)button{
-//
-//    int i = button.tag-1000;
-//    [self pushToAPageWithURLType:_arrayRecommend[i]];
-//}
 
 #pragma 配置热门活动部分
 - (void)configInfoOfHot{
     
-    //    BOOL show2 =  YES;
     [_imageListView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     [self configOfHot1];
@@ -1353,10 +1303,25 @@
 
 //发起请求
 - (void)getSearchRequest{
-    session = [SESSION getSession];
-    UUID = [CommonUtils uuid];
-    searchService = [[SearchService alloc] initWithDelegate:self parentView:self.view];
-    [searchService getProductWithFetchSearchHistory:true andSearchCookieUUID:UUID andSession:session andPagination:pagination];
+    SearchService * searchService = [[SearchService alloc] initWithDelegate:self parentView:self.view];
+    [searchService getProductWithFetchSearchHistory:true andPagination:pagination success:^(BaseModel *responseObj) {
+        _hotArray = [[NSMutableArray alloc] init];
+        [_hotArray removeAllObjects];
+        
+        HotSearchKeyListResponse * resobj = (HotSearchKeyListResponse *)responseObj;
+        [_hotArray addObjectsFromArray:resobj.data];
+        
+        if (pagination.page > 1) {
+            NSMutableArray<NSString *> *hotSeaches = [[NSMutableArray alloc] init];
+            for (NSString *str in _hotArray) {
+                [hotSeaches addObject:str];
+            }
+            weakVC.hotSearches = hotSeaches;
+            [weakVC.tableView reloadData];
+        }
+        
+    }];
+    
 }
 
 - (void)pushToSearchPage:(UIButton *)button{

@@ -32,7 +32,6 @@
     nTitle.textColor = [UIColor colorWithRed:37/255.0 green:38/255.0 blue:37/255.0 alpha:1];
     nTitle.font = [UIFont systemFontOfSize:20];
     self.navigationItem.titleView = nTitle;
-    reviewService = [[ReviewService alloc] initWithDelegate:self parentView:self.view];
     _tableList.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableList.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1];
     _tableList.delegate = self;
@@ -42,6 +41,7 @@
     
     [_tableList reloadData];
 }
+
 - (IBAction)ExpressOpinion:(id)sender {
     NSMutableArray *reviews = [[NSMutableArray alloc] initWithCapacity:10];
     for (int i=0; i<_appOrderInfo.appOrderItems.count; i++){
@@ -59,24 +59,16 @@
         review.orderItemId = orderItem.id;
         [reviews addObject:review];
     }
-    [reviewService submit:reviews isAnonymity:false];
-}
-
-- (void)loadResponse:(NSString *) url response:(BaseModel *)response{
-    if ([url isEqual:api_review_submit]){
-        ReviewsResponse *respobj = (ReviewsResponse*)response;
+    ReviewService *reviewService  = [[ReviewService alloc] initWithDelegate:self parentView:self.view];
+    [reviewService submit:reviews isAnonymity:false success:^(BaseModel *responseObj) {
+        ReviewsResponse *respobj = (ReviewsResponse*)responseObj;
         if (respobj.status.succeed == 1){
             // @"成功评价"
             NSString *opinionVC_toastNotification_msg1 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"opinionVC_toastNotification_msg1"];
             [CommonUtils ToastNotification:opinionVC_toastNotification_msg1 andView:self.view andLoading:NO andIsBottom:NO];
             [self.navigationController popViewControllerAnimated:YES];
         }
-    }
-}
-
-- (void)tap
-{
-    [self.view endEditing:YES];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -85,7 +77,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return TMScreenH *100/568;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,13 +85,6 @@
     OpinionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OpinionCell"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"OpinionCell" owner:self options:nil] lastObject];
-//        for (NSObject *o in objects) {
-//            if ([o isKindOfClass:[OpinionCell class]]) {
-//                cell = (OpinionCell *)o;
-//                break;
-//            }
-//        }
-
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     AppOrderItem *orderItem = [_appOrderInfo.appOrderItems objectAtIndex:indexPath.row];
@@ -110,25 +95,11 @@
 
 #pragma mark - setTextValue文案配置
 - (void)setTextValue {
-    
     // 发表评价
     NSString *opinionVC_btn_title = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"opinionVC_btn_title"];
     [self.btn1 setTitle:opinionVC_btn_title forState:(UIControlStateNormal)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

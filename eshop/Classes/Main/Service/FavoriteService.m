@@ -10,7 +10,7 @@
 
 @implementation FavoriteService
 
-- (void)getFavoriteList:(Pagination *)pagination{
+- (void)getFavoriteList:(Pagination *)pagination success:(void (^)(BaseModel*responseObj))success{
     SESSION *session = [SESSION getSession];
     NSMutableDictionary * params = [[NSMutableDictionary alloc] init];
     FavoriteListRequest *request = [[FavoriteListRequest alloc] init];
@@ -25,10 +25,10 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:api_favorite_list];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [super request:api_favorite_list params:params responseObj:respObj];
+    [super request:api_favorite_list params:params responseObj:respObj success:success];
 }
 
-- (void)delFavorite:(int)productId{
+- (void)delFavorite:(int)productId success:(void (^)(BaseModel*responseObj))success{
     SESSION *session = [SESSION getSession];
     NSMutableDictionary * params = [[NSMutableDictionary alloc] init];
     FavoriteDeleteRequest *request = [[FavoriteDeleteRequest alloc] init];
@@ -43,10 +43,10 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:api_favorite_delete];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [super request:api_favorite_delete params:params responseObj:respObj];
+    [super request:api_favorite_delete params:params responseObj:respObj success:success];
 }
 
-- (void)addFavorite:(int)productId{
+- (void)addFavorite:(int)productId success:(void (^)(BaseModel*responseObj))success{
     SESSION *session = [SESSION getSession];
     NSMutableDictionary * params = [[NSMutableDictionary alloc] init];
     [CommonUtils fillStrToDictionary:params key:@"session" value:session.toJsonString];
@@ -59,11 +59,11 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:api_favorite_add];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [super request:api_favorite_add params:params responseObj:respObj];
+    [super request:api_favorite_add params:params responseObj:respObj success:success];
 }
 
 //移除多个收藏
-- (void)delFavorites:(NSArray *)productIds{
+- (void)delFavorites:(NSArray *)productIds success:(void (^)(BaseModel*responseObj))success{
     SESSION *session = [SESSION getSession];
     NSMutableDictionary * params = [[NSMutableDictionary alloc] init];
     FavoritesDeleteRequest *request = [[FavoritesDeleteRequest alloc] init];
@@ -78,7 +78,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:api_favorite_deleteFavorites];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [super request:api_favorite_deleteFavorites params:params responseObj:respObj];
+    [super request:api_favorite_deleteFavorites params:params responseObj:respObj success:success];
 }
 
 

@@ -15,6 +15,9 @@
 #define getImgUrl @"%@common/captcha.jhtm?captchaId=%@"
 
 @interface ShopLoginViewController ()
+{
+    LoginService *loginService;
+}
 
 @property (nonatomic, strong) NSMutableString *codeMutString;
 @property (nonatomic, strong) UIButton * btnLeft;
@@ -216,7 +219,9 @@
         return;
     }
     
-    [loginService loginWithName:name password:pwd captchaId:self.captchaStr captcha:verCode];
+    [loginService loginWithName:name password:pwd captchaId:self.captchaStr captcha:verCode success:^(BaseModel *responseObj) {
+        [self loginResultWithResponse:responseObj];
+    }];
 }
 
 //注册账号
@@ -248,7 +253,9 @@
             self.accessToken = resp.accessToken;
             self.cartId = [SESSION getSession].cartId;
             
-            [loginService loginWithWX:self.openId nickName:self.nickName cartId:self.cartId accessToken:self.accessToken];
+            [loginService loginWithWX:self.openId nickName:self.nickName cartId:self.cartId accessToken:self.accessToken success:^(BaseModel *responseObj) {
+                [self loginResultWithResponse:responseObj];
+            }];
         }
     }];
 }
@@ -268,13 +275,15 @@
             self.accessToken = resp.accessToken;
             self.cartId = [SESSION getSession].cartId;
             
-            [loginService loginWithWX:self.openId nickName:self.nickName cartId:self.cartId accessToken:self.accessToken];
+            [loginService loginWithWX:self.openId nickName:self.nickName cartId:self.cartId accessToken:self.accessToken success:^(BaseModel *responseObj) {
+                [self loginResultWithResponse:responseObj];
+            }];
         }
     }];
 }
 
 
-- (void)loadResponse:(NSString *) url response:(BaseModel *)response{
+- (void)loginResultWithResponse:(BaseModel *)response{
     
     UserSignInResponse * respobj = (UserSignInResponse *)response;
     [[Config Instance] saveUserInfo:@"uid" withvalue:[[NSString alloc] initWithFormat:@"%d", respobj.data.user.id]];

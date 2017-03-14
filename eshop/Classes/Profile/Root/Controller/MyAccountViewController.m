@@ -404,17 +404,7 @@
     self.navigationItem.backBarButtonItem = barButtonItem;
     [self.navigationController pushViewController:loginVC animated:YES];
 }
-//土猫点券
-- (IBAction)clickMyDeposit:(id)sender{
-    if (![CommonUtils chkLogin:self gotoLoginScreen:YES]){
-        return;
-    }
-    MyDeposit *myDeposit = [[MyDeposit alloc] init];
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:nil action:nil];
-    self.navigationItem.backBarButtonItem = barButtonItem;
-    
-    [self.navigationController pushViewController:myDeposit animated:YES];
-}
+
 //收货地址管理
 - (IBAction)clickAddressManage:(id)sender{
     if (![CommonUtils chkLogin:self gotoLoginScreen:YES]){
@@ -425,12 +415,6 @@
     self.navigationItem.backBarButtonItem = barButtonItem;
     [self.navigationController pushViewController:addressList animated:YES];
 }
-//- (IBAction)clickSetting:(id)sender{
-//    SettingController *setting = [[SettingController alloc] initWithNibName:@"SettingController" bundle:nil];
-//    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:nil action:nil];
-//    self.navigationItem.backBarButtonItem = barButtonItem;
-//    [self.navigationController pushViewController:setting animated:YES];
-//}
 
 //优惠券列表
 - (IBAction)clickMyCouponCodes:(id)sender{

@@ -34,7 +34,6 @@
     NSUInteger kNumberOfPages;
     AppProduct * product;
     ProductService *productService;
-    FavoriteService *favoriteService;
     CartService *cartService;
     OrderService * orderService;
     Boolean isBuyAtOnce;

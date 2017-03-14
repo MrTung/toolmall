@@ -11,6 +11,12 @@
 #import "ProductInfoViewController.h"
 
 @interface FavoriteListController ()
+{
+    FavoriteService *favoriteService;
+    CartService * cartService;
+    ProductService * productService;
+    Pagination * pagination;
+}
 
 @end
 
@@ -19,13 +25,11 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.hidesBottomBarWhenPushed=YES;
     }
     return self;
-    
 }
 
 - (void)viewDidLoad
@@ -99,13 +103,13 @@
     [self.tableList reloadData];
 }
 
-- (void) loadData:(BOOL)refresh
+- (void)loadData:(BOOL)refresh
 {
     if (refresh){
         pagination.page = 1;
         [favorites removeAllObjects];
     }
-    [favoriteService getFavoriteList:pagination];
+    [self getFavoriteListWithPagination:pagination];
 }
 
 - (void)loadResponse:(NSString *) url response:(BaseModel *)response{
@@ -119,18 +123,44 @@
             [self.tableList reloadData];
         }
     }
-    
-    if ([url isEqualToString:api_favorite_deleteFavorites]) {
-        StatusResponse * respobj = (StatusResponse *)response;
-        if (respobj.status.succeed == 1) {
-            pagination.page = 1;
-            [favorites removeAllObjects];
-            [favoriteService getFavoriteList:pagination];
+    else if ([url isEqual:api_favorite_delete]){
+        
+        StatusResponse *respobj = (StatusResponse*)response;
+        if (respobj.status.succeed == 1){
+            [favorites removeObjectAtIndex:curDelRow];
+            [self.tableList reloadData];
+        }
+        
+    }else if([url isEqual:api_product_list]){
+        
+        ProductListResponse * respobj = (ProductListResponse *)response;
+        _hotProducts = [[NSMutableArray alloc] initWithCapacity:0];
+        [_hotProducts addObjectsFromArray:respobj.data];
+        if (_hotProducts.count > 0) {
+            
+            [self createItemsOfProductViewHistory];
         }
     }
-    if ([url isEqual:api_favorite_list]){
+}
+
+//跳转到首页
+- (void)jumpToIndexPage{
+    
+    self.tabBarController.selectedIndex = 0;
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+#pragma mark 网络访问
+
+/**
+ 获取收藏列表
+ @param page 分页
+ */
+-(void)getFavoriteListWithPagination:(Pagination *)page{
+    
+    [favoriteService getFavoriteList:pagination success:^(BaseModel *responseObj) {
         //收藏列表
-        FavoriteListResponse * respobj = (FavoriteListResponse *)response;
+        FavoriteListResponse * respobj = (FavoriteListResponse *)responseObj;
         [favorites addObjectsFromArray:respobj.data];
         //        NSLog(@"收藏列表信息：%@",favorites);
         if (favorites.count == 0){
@@ -174,32 +204,7 @@
                 [self.tableList setPullTableIsRefreshing:NO];
             }
         }
-        
-    } else if ([url isEqual:api_favorite_delete]){
-        
-        StatusResponse *respobj = (StatusResponse*)response;
-        if (respobj.status.succeed == 1){
-            [favorites removeObjectAtIndex:curDelRow];
-            [self.tableList reloadData];
-        }
-        
-    }else if([url isEqual:api_product_list]){
-        
-        ProductListResponse * respobj = (ProductListResponse *)response;
-        _hotProducts = [[NSMutableArray alloc] initWithCapacity:0];
-        [_hotProducts addObjectsFromArray:respobj.data];
-        if (_hotProducts.count > 0) {
-            
-            [self createItemsOfProductViewHistory];
-        }
-    }
-}
-
-//跳转到首页
-- (void)jumpToIndexPage{
-    
-    self.tabBarController.selectedIndex = 0;
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    }];
 }
 
 #pragma mark - 创建足迹视图
@@ -297,17 +302,21 @@
     }
 }
 
-
 //取消收藏
 - (IBAction)delFavorite:(id)sender{
     
-    //    NSLog(@"取消收藏");
     NSMutableArray *productIds = [self getSelectedProductIds];
     if (productIds.count > 0) {
-        [favoriteService delFavorites:productIds];
+        [favoriteService delFavorites:productIds success:^(BaseModel *responseObj) {
+            StatusResponse * respobj = (StatusResponse *)responseObj;
+            if (respobj.status.succeed == 1) {
+                pagination.page = 1;
+                [favorites removeAllObjects];
+                [self getFavoriteListWithPagination:pagination];
+            }
+        }];
     }
     else{
-        // @"您当前还没有选择商品"
         NSString *favoriteListController_toastNotification_msg2 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"favoriteListController_toastNotification_msg2"];
         [CommonUtils ToastNotification:favoriteListController_toastNotification_msg2 andView:self.view andLoading:NO andIsBottom:YES];
     }
@@ -409,8 +418,6 @@
     NSIndexPath *indexPath = [_tableList indexPathForCell:cell];
     
     FavoriteList * favorite = [favorites objectAtIndex:indexPath.row];
-    
-    //    favorite.productId = button.tag;
     
     if ([mode isEqualToString:@"edit"]){
         if (favorite.selected) {

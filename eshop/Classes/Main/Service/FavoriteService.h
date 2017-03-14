@@ -16,14 +16,11 @@
 @interface FavoriteService : BaseService
 
 
-- (void)getFavoriteList:(Pagination *)pagination;
+- (void)getFavoriteList:(Pagination *)pagination success:(void (^)(BaseModel*responseObj))success;
 
-- (void)delFavorite:(int)productId;
+- (void)delFavorite:(int)productId success:(void (^)(BaseModel*responseObj))success;
 
-
-- (void)addFavorite:(int)productId;
-
-
+- (void)addFavorite:(int)productId success:(void (^)(BaseModel*responseObj))success;
 //多个
-- (void)delFavorites:(NSArray *)productIds;
+- (void)delFavorites:(NSArray *)productIds success:(void (^)(BaseModel*responseObj))success;
 @end

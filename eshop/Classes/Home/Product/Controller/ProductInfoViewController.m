@@ -97,7 +97,6 @@
     
     productService = [[ProductService alloc] initWithDelegate:self parentView:self.view];
     cartService = [[CartService alloc] initWithDelegate:self parentView:self.view];
-    favoriteService = [[FavoriteService alloc] initWithDelegate:self parentView:self.view];
     orderService = [[OrderService alloc] initWithDelegate:self parentView:self.view];
     [productService getProductInfo:_productId];
 }
@@ -795,14 +794,38 @@
 
 #pragma 收藏
 - (void)addFavorite:(UIButton*)sender{
+    
+    FavoriteService *favoriteService = [[FavoriteService alloc] initWithDelegate:self parentView:self.view];
+    
     if ([CommonUtils chkLogin:self gotoLoginScreen:YES]){
+        
+        // @"已加入收藏"
+        NSString *productInfoVC_toastNotification_msg3 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"productInfoVC_toastNotification_msg3"];
+        // @"已取消收藏"
+        NSString *productInfoVC_toastNotification_msg4 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"productInfoVC_toastNotification_msg4"];
+ 
         if (product.isFavorited){
-            [favoriteService delFavorite:product.id];
+            [favoriteService delFavorite:product.id success:^(BaseModel *responseObj) {
+                StatusResponse *resp = (StatusResponse*)responseObj;
+                if (resp.status.succeed == 1){
+                    [CommonUtils ToastNotification:productInfoVC_toastNotification_msg4 andView:self.view andLoading:NO andIsBottom:NO];
+                    _collectImageView.image = [UIImage imageNamed:@"收藏1"];
+                    product.isFavorited = false;
+                }
+            }];
         }
-        else [favoriteService addFavorite:product.id];
+        else [favoriteService addFavorite:product.id success:^(BaseModel *responseObj) {
+                StatusResponse *resp = (StatusResponse*)responseObj;
+                if (resp.status.succeed == 1){
+                    [CommonUtils ToastNotification:productInfoVC_toastNotification_msg3 andView:self.view andLoading:NO andIsBottom:NO];
+                    _collectImageView.image = [UIImage imageNamed:@"收藏2"];
+                    product.isFavorited = true;
+                }
+        }];
     }
 }
-//
+
+
 - (void)sendMessage:(Message *)msg{
     if (msg.what == 1) {
         //click Product Image
@@ -843,10 +866,7 @@
     
     // @"已加入购物车"
     NSString *productInfoVC_toastNotification_msg2 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"productInfoVC_toastNotification_msg2"];
-    // @"已加入收藏"
-    NSString *productInfoVC_toastNotification_msg3 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"productInfoVC_toastNotification_msg3"];
-    // @"已取消收藏"
-    NSString *productInfoVC_toastNotification_msg4 = [[TextDataBase shareTextDataBase] searchTextStrByModelPath:@"productInfoVC_toastNotification_msg4"];
+    
     if ([url  isEqual: api_product_info]){
         
         ProductDetailResponse * prodDetailResponse = (ProductDetailResponse *)response;
@@ -901,21 +921,7 @@
                 isBuyAtOnce = false;
             }
         }
-    } else if ([url isEqualToString:api_favorite_add]){
-        StatusResponse *resp = (StatusResponse*)response;
-        if (resp.status.succeed == 1){
-            [CommonUtils ToastNotification:productInfoVC_toastNotification_msg3 andView:self.view andLoading:NO andIsBottom:NO];
-            _collectImageView.image = [UIImage imageNamed:@"收藏2"];
-            product.isFavorited = true;
-        }
-    }else if ([url isEqualToString:api_favorite_delete]){
-        StatusResponse *resp = (StatusResponse*)response;
-        if (resp.status.succeed == 1){
-            [CommonUtils ToastNotification:productInfoVC_toastNotification_msg4 andView:self.view andLoading:NO andIsBottom:NO];
-            _collectImageView.image = [UIImage imageNamed:@"收藏1"];
-            product.isFavorited = false;
-        }
-    }else if ([url isEqualToString:api_order_build_buyatonce]){
+    } else if ([url isEqualToString:api_order_build_buyatonce]){
         OrderBuildResponse2 * orderBuildResponse = (OrderBuildResponse2 *)response;
         if (orderBuildResponse.status.succeed == 1){
             

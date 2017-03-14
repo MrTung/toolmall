@@ -12,5 +12,9 @@
 @interface PromotionService : BaseService
 
 
-- (void) getPromotionList:(NSString*) promotionType pagination:(Pagination*) pagination;
+//- (void) getPromotionList:(NSString*) promotionType pagination:(Pagination*) pagination;
+
+- (void) getPromotionList:(NSString*) promotionType pagination:(Pagination*) pagination success:(void (^)(BaseModel*responseObj))success;
+
+
 @end

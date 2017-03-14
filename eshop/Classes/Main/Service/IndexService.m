@@ -16,19 +16,15 @@
 @end
 @implementation IndexService
 
-- (void)getInfo{
-    
+- (void)getInfoWithBlock:(void (^)(BaseModel*responseObj))success{
     IndexResponse * resobj = [[IndexResponse alloc] init];
     
     NSMutableDictionary * params = [[NSMutableDictionary alloc] init];
-//    [CommonUtils fillStrToDictionary:params key:iOSAppVersion value:[CommonUtils returnVersion]];
     [CommonUtils fillStrToDictionary:params key:iOSApiVersion value:@"iOS_1.1.2"];
-    
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:api_index_list];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [super request:api_index_list params:params responseObj: resobj];
+    [super request:api_index_list params:params responseObj: resobj success:success];
 }
-
 
 - (void)getXMLString {
     

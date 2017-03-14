@@ -12,4 +12,9 @@
 @interface VersionService : BaseService
 
 - (void) getUpgradePolicy:(NSString*) appVersion;
+
+#pragma mark 
+
+- (void)getUpgradePolicy:(NSString*) appVersion success:(void (^)(BaseModel*responseObj))success;
+
 @end
